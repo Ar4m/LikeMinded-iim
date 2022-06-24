@@ -1,10 +1,23 @@
-import { Button, IconButton, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure } from '@chakra-ui/react';
+import { Button, IconButton, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Tag, TagLabel, Text, useDisclosure, Box } from '@chakra-ui/react';
 import { ViewIcon } from '@chakra-ui/icons';
 import React from 'react'
 
 const ProfileModal = ({ user, children }) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  let userHobbies = user.hobbies
+    let hobbiesList = userHobbies.map((userHobbies) =>
+        <Tag
+        borderRadius='full'
+        variant='subtle'
+        colorScheme='blue'
+        px="2" py="1"
+        ml="1" mb="1"
+        >
+        <TagLabel>{userHobbies}</TagLabel>
+        </Tag>
+    );
 
   return (
     <>
@@ -17,7 +30,7 @@ const ProfileModal = ({ user, children }) => {
         <ModalOverlay />
         <ModalContent h="410px">
           <ModalHeader
-            fontSize="40px"
+            fontSize="35px"
             fontFamily="Work sans"
             d="flex"
             justifyContent="center"
@@ -36,18 +49,19 @@ const ProfileModal = ({ user, children }) => {
               boxSize="150px"
               src={user.pic}
               alt={user.name}
+              height='auto'
             />
             <Text
-              fontSize={{ base: "28px", md: "30px" }}
+              fontSize={{ base: "20px", md: "26px" }}
               fontFamily="Work sans"
             >
               Email: {user.email}
             </Text>
             <Text
-              fontSize={{ base: "28px", md: "30px" }}
+              fontSize={{ base: "20px", md: "26px" }}
               fontFamily="Work sans"
             >
-              Hobbies: {user.hobbies}
+              Hobbies: {hobbiesList}
             </Text>
           </ModalBody>
           <ModalFooter>
