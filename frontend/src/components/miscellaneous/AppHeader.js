@@ -35,22 +35,22 @@ const AppHeader = () => {
         p="5px 10px 5px 10px"
         borderWidth="3px"
       >
-        <Text fontSize="2xl" fontFamily="Work sans" px={2}>
+        <Text fontSize={{ base: "md", md: "2xl" }} fontWeight="bold" fontFamily="Work sans" px={2}>
           LikeMinded
         </Text>
         <Box
             d="flex"
             justifyContent="space-between"
             alignItems="center"
-            w="25%"
+            minW="25%"
         >
             <Button variant="ghost" onClick={redirectChats}>
                 <i className="far fa-comment" style={{ paddingRight: "8px" }}></i>
-                <p>Chats</p>
+                <Text display={{ base: "none", md: "contents" }}>Chats</Text>
             </Button>
             <Button variant="ghost" onClick={redirectMeet}>
                 <i className="fas fa-users" style={{ paddingRight: "8px" }}></i>
-                <p>Users</p>
+                <Text display={{ base: "none", md: "contents" }}>Users</Text>
             </Button> 
         </Box>
         <div>

@@ -42,14 +42,14 @@ const UserListItem = ({ user, handleFunction }) => {
         name={user.name}
         src={user.pic}
       />
-      <Box mr={3}>
+      <Box mr={3} minW="25%">
         <Text>{user.name}</Text>
         <Text fontSize="xs">
           <b>Email : </b>
           {user.email}
         </Text>
       </Box>
-      <Box>
+      <Box minW="30%">
         {hobbiesList}
       </Box>
     </Box>

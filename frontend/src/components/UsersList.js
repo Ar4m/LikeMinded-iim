@@ -92,7 +92,7 @@ const UsersList = () => {
   }, []);
 
   return (
-    <Box w={{ base: "100%", md: "40%" }}>
+    <Box w={{ base: "95%", md: "36%" }}>
       <Box maxW="75%" mx="auto" d="flex" justifyContent="space-between" alignItems="center" h="7vh" pb={2}>
         <i className="fas fa-search" style={{ padding: "8px" }}></i>
         <Input
