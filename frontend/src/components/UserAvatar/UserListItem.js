@@ -44,10 +44,10 @@ const UserListItem = ({ user, handleFunction }) => {
       />
       <Box mr={3} minW="25%">
         <Text>{user.name}</Text>
-        <Text fontSize="xs">
+        {/* <Text fontSize="xs">
           <b>Email : </b>
           {user.email}
-        </Text>
+        </Text> */}
       </Box>
       <Box minW="30%">
         {hobbiesList}
