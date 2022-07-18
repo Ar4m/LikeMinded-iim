@@ -10,8 +10,8 @@ import ScrollableChat from './ScrollableChat';
 import './styles.css'
 import io from 'socket.io-client';
 
-//const ENDPOINT = "http://localhost:5000";
-const ENDPOINT = "https://likeminded-alpha.herokuapp.com/";
+const ENDPOINT = "http://localhost:5000";
+//const ENDPOINT = "https://likeminded-alpha.herokuapp.com/";
 
 var socket, selectedChatCompare;
 

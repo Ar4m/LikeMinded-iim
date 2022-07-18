@@ -6,18 +6,21 @@ const ProfileModal = ({ user, children }) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  let userHobbies = user.hobbies
-    let hobbiesList = userHobbies.map((userHobbies) =>
-        <Tag
-        borderRadius='full'
-        variant='subtle'
-        colorScheme='blue'
-        px="2" py="1"
-        ml="1" mb="1"
-        >
-        <TagLabel>{userHobbies}</TagLabel>
-        </Tag>
-    );
+  let userHobbies = ["No hobbies added"]
+  if(user.hobbies) { userHobbies = user.hobbies }
+  
+  let hobbiesList = userHobbies.map((userHobbies) =>
+    <Tag
+      key={userHobbies}
+      borderRadius='full'
+      variant='subtle'
+      colorScheme='blue'
+      px="2" py="1"
+      ml="1" mb="1"
+    >
+    <TagLabel>{userHobbies}</TagLabel>
+    </Tag>
+  );
 
   return (
     <>
