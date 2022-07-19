@@ -5,6 +5,7 @@ import { ChatState } from '../Context/ChatProvider';
 import ChatLoading from './ChatLoading';
 import UserListItem from './UserAvatar/UserListItem';
 import { useHistory } from 'react-router-dom';
+import ProfileModal from './miscellaneous/ProfileModal';
 
 const UsersList = () => {
 
@@ -96,7 +97,7 @@ const UsersList = () => {
       <Box maxW="75%" mx="auto" d="flex" justifyContent="space-between" alignItems="center" h="7vh" pb={2}>
         <i className="fas fa-search" style={{ padding: "8px" }}></i>
         <Input
-          placeholder="Search by name/email/hobby"
+          placeholder="Search by name/hobby"
           bg="white"
           mr={2}
           value={search}
@@ -107,11 +108,13 @@ const UsersList = () => {
       {loading ? <ChatLoading /> : 
         (
           searchResult?.map((user) => (
-            <UserListItem
-              key={user._id}
-              user={user}
-              handleFunction={() => accessChat(user._id)}
-            />
+          
+            <ProfileModal user={user} key={user._id}>
+              <UserListItem
+                key={user._id}
+                user={user}
+              />
+            </ProfileModal>
           ))
         )
       }
