@@ -28,7 +28,13 @@ import mode from '../images/mode.png'
 import nouvellestechnologies from '../images/nouvelles technologies.png'
 import musique from '../images/musique.png'
 import blue2 from '../images/blue2.png'
-import './LandingPage.css'
+import pers1blue2 from '../images/pers1blue2.png'
+import pers2blue2 from '../images/pers2blue2.png'
+import pers3blue2 from '../images/pers3blue2.png'
+import footer from '../images/footer.png'
+import nader from '../images/nader.png'
+import logolikeminded3 from '../images/logolikeminded3.png'
+import fleche from '../images/fleche.png'
 import {
     Box,
     Flex,
@@ -91,6 +97,7 @@ import {
                     justify={'flex-end'}
                     direction={'row'}
                     spacing={6}>
+
                     <Button
                     textDecoration="none"
                     fontSize={'md'}
@@ -116,7 +123,7 @@ import {
             style={{
                     backgroundImage: `url(${background})`,
                     backgroundPosition: 'center',
-                    backgroundSize: '100% 65vh'
+                    backgroundSize: '100% 100%'
             }}>
                 <Box w="80%" mx="auto">
                     <Grid templateColumns='repeat(2, 1fr)'>
@@ -130,7 +137,7 @@ import {
                             <Heading as='h2' size='2xl'>+10 000</Heading>
                             <p>personnes connectées !</p>
                             <br/>
-                            <Button style={{backgroundColor: "#00ffffff", marginBottom: "150px"}}>Découvrir Maintenant</Button>
+                            <Button style={{backgroundColor: "transparent", marginBottom: "150px", border:'1px solid white', borderRadius: "25px"}}>Découvrir Maintenant<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "25px", height: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                         </GridItem>
                         <GridItem>
                             <img style={{marginTop: "150px"}} src={people} alt={people}></img>
@@ -151,7 +158,7 @@ import {
                             sujets communs pour faire de nouvelles rencontres,<br/>
                             poursuivre des projets ou organiser des événements. </p>
                             <br/>
-                            <Button style={{backgroundColor: "#00ffffff"}}>Rejoindre la communauté</Button>
+                            <Button style={{backgroundColor: "transparent", marginBottom: "150px", border:'1px solid #D7D7D7', borderRadius: "25px"}}>Rejoindre la communauté<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "25px", height: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                         </GridItem>
                         <GridItem style={{marginTop: "150px", marginBottom: "150px"}}>
                             <Box style={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
@@ -203,11 +210,11 @@ import {
             </Box>
             <Box style={{backgroundColor: 'white'}}>
                 <Box w="80%" mx="auto" style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
-                    <Heading as='h4' size='md' style={{fontFamily: 'Varela Round', paddingTop: "150px"}}>Des groupes actifs</Heading>
+                    <Heading as='h4' size='lg' style={{fontFamily: 'Varela Round', paddingTop: "120px"}}>Des groupes actifs</Heading>
                     <br/>
                     <p style={{ textAlign: 'center'}}>Rencontrez des gens réactifs sur nos groupes pour échanger et organiser des<br/> projets ou des événements.</p>
                     <br/>
-                    <Grid templateColumns='repeat(5, 1fr)' style={{marginTop: '150px'}}>
+                    <Grid templateColumns='repeat(5, 1fr)' style={{marginTop: '50px'}}>
                         <GridItem style={{display: 'flex', alignItems: 'flex-end', justifyContent: 'center', marginBottom: '50px'}}>
                             <img src={person1b} style={{height: '165px'}}/>
                         </GridItem>
@@ -217,10 +224,11 @@ import {
                             <img src={person1c} style={{height: '165px', width: '165px'}}/>
                         </GridItem>
                         <GridItem style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <div class="nader" style={{}}>
-                                Nader Helali<br/>
-                                - ----<br/>
-                                24 - groupes
+                        <div style={{height: '250px', width: '250px', backgroundImage: `url(${nader})`, backgroundSize: '250px', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', flexDirection: 'column', color: 'white'}}>
+                            <Heading as='h2' size='md' style={{fontFamily: 'Varela Round'}}>Nader Helali</Heading>
+                            <br/>
+                            <br/>
+                            <p>24 - groupes</p>
                             </div>
                         </GridItem>
                         <GridItem style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
@@ -232,7 +240,9 @@ import {
                             <img src={person2b} style={{height: '165px'}}/>
                         </GridItem>
                     </Grid>
-                    <Button style={{backgroundColor: "#00ffffff", marginTop: '150px', marginBottom: '150px'}}>Découvrir les membres</Button>
+                    <br/>
+                    <br/>
+                    <Button style={{backgroundColor: "transparent", marginBottom: "120px", border:'1px solid #D7D7D7', borderRadius: "25px"}}>Découvrir les membres<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "25px", height: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                 </Box>
             </Box>
             <Grid templateColumns='repeat(2, 1fr)'>
@@ -250,23 +260,23 @@ import {
             {/* Trouvez des personnes proches de vous */}
             <Box style={{background: 'white'}}>
                 <Box w="80%" mx="auto" style={{paddingTop: "150px", paddingBottom: "150px"}}>
-                    <Heading as='h4' size='md' style={{fontFamily: 'Varela Round', textAlign: 'center'}}>Trouvez des personnes proches de vous</Heading>
+                    <Heading as='h4' size='lg' style={{fontFamily: 'Varela Round', textAlign: 'center'}}>Trouvez des personnes proches de vous</Heading>
                     <br/>
-                    <p style={{ textAlign: 'center'}}>Sélectionnez la ville où vous vous trouvez pour découvrir ses différentes<br/> communautés, les activités et les événements dans le coin !</p>
+                    <p style={{textAlign: 'center'}}>Sélectionnez la ville où vous vous trouvez pour découvrir ses différentes<br/> communautés, les activités et les événements dans le coin !</p>
                     <br/>
-                    <Grid templateColumns='repeat(2, 1fr)'>
+                    <Grid templateColumns='repeat(2, 1fr)' style={{}}>
                         <GridItem>
-                            <img src={paris} style={{marginRight: '10px'}}/>
+                            <img src={paris} style={{marginRight: '10px', height: '100%'}}/>
                         </GridItem>
                         <GridItem>
                             <Grid templateColumns='repeat(2, 1fr)'>
                                 <GridItem>
-                                    <img src={marseille} style={{marginLeft: '10px', marginBottom: '10px'}}/>
-                                    <img src={strasbourg} style={{marginLeft: '10px'}}/>
+                                    <img src={marseille} style={{marginLeft: '10px', marginBottom: '10px', height: '49%'}}/>
+                                    <img src={strasbourg} style={{marginLeft: '10px', height: '49%'}}/>
                                 </GridItem>
                                 <GridItem>
-                                    <img src={lyon} style={{marginLeft: '20px', marginBottom: '10px'}}/> 
-                                    <img src={bordeaux} style={{marginLeft: '20px'}}/> 
+                                    <img src={lyon} style={{marginLeft: '20px', marginBottom: '10px', height: '49%'}}/> 
+                                    <img src={bordeaux} style={{marginLeft: '20px', height: '49%'}}/> 
                                 </GridItem>
                             </Grid>
                         </GridItem>
@@ -279,11 +289,11 @@ import {
                     <Grid templateColumns='repeat(2, 1fr)' >
                         
                             <GridItem style={{marginTop: '150px', marginBottom: '150px'}}>
-                                <Heading as='h4' size='md' style={{fontFamily: 'Varela Round', textAlign: 'center'}}>Like Minded rend la vie plus simple & facile</Heading>
+                                <Heading as='h4' size='lg' style={{fontFamily: 'Varela Round', textAlign: 'center'}}>Like Minded rend la vie plus simple & facile</Heading>
                                 <br/>
                                 <p style={{ textAlign: 'center'}}>Oubliez l’angoisse du premier pas grâce à Like Minded :<br/> nous vous proposons de nouvelles rencontres pour<br/> poursuivre vos hobbies et échanger sur vos centres<br/> d’intérêts avec des passionnés.</p>
                                 <br/>
-                                <Button style={{backgroundColor: "#00ffffff", marginTop: '150px'}}>Découvrir l'app</Button>
+                                <Button style={{backgroundColor: "#2D5BE3", marginTop: "150px", borderRadius: "25px", color: "white"}}>Découvrir l'app<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "25px", height: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                             </GridItem>
                             <GridItem>
                                 <img src={iphone} />
@@ -295,38 +305,104 @@ import {
 
             <Box style={{background: 'white', paddingTop: '150px', paddingBottom: '150px'}}>
                 <Box w="80%" mx="auto" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                                <Heading as='h4' size='md' style={{fontFamily: 'Varela Round', textAlign: 'center'}}>Les groupes les plus populaires</Heading>
+                                <Heading as='h4' size='lg' style={{fontFamily: 'Varela Round', textAlign: 'center'}}>Les groupes les plus populaires</Heading>
                                 <br/>
                                 <p style={{ textAlign: 'center'}}>Rejoignez les groupes pour échanger sur vos centres d’intérêt ou pour découvrir<br/> de nouveaux hobbies, ou créez le votre !</p>
                                 <br/>
                     <Grid templateColumns='repeat(4, 1fr)' >
                         
-                            <GridItem style={{marginTop: '150px', marginBottom: '150px'}}>
+                            <GridItem style={{marginTop: '110px', marginBottom: '110px'}}>
                                 <img src={voyages} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
                                 <img src={architecture} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
                             </GridItem>
-                            <GridItem style={{marginTop: '150px', marginBottom: '150px'}}>
+                            <GridItem style={{marginTop: '110px', marginBottom: '110px'}}>
                                 <img src={lecture} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
                                 <img src={mode} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
                             </GridItem>
-                            <GridItem style={{marginTop: '150px', marginBottom: '150px'}}>
+                            <GridItem style={{marginTop: '110px', marginBottom: '110px'}}>
                                 <img src={sport} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
                                 <img src={nouvellestechnologies} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
                             </GridItem>
-                            <GridItem style={{marginTop: '150px', marginBottom: '150px'}}>
+                            <GridItem style={{marginTop: '110px', marginBottom: '110px'}}>
                                 <img src={automobile} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
                                 <img src={musique} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
                             </GridItem>
                         
                     </Grid>
-                    <Button style={{backgroundColor: "#00ffffff"}}>Voir tous les groupes</Button>
+                    <Button style={{backgroundColor: "transparent", marginTop: "20px", marginBottom: "40px", border:'1px solid #D7D7D7', borderRadius: "25px"}}>Voir tous les groupes<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "25px", height: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                 </Box>
-                <Box style={{background: `url('../images/blue2.png')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
-
-                </Box>
+                
+            </Box>
+            <Box style={{background: `url(${blue2})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', paddingTop: "150px", paddingBottom: "150px", color: 'white'}}>
+                <Heading as='h3' size='lg' style={{fontFamily: 'Varela Round', textAlign: 'center'}}>Jasmine Ripaud</Heading>
+                <br/>
+                <Heading as='h6' size='md' style={{fontFamily: 'Varela Round', textAlign: 'center'}}>Étudiante</Heading>
+                <br />
+                <p style={{textAlign: 'center'}}>“Super appli ! J’ai rapidement pu rencontrer un groupe de dessin et organiser<br/> des sorties pour dessiner des œuvres au Louvre.“</p>
+                <br/>
+                <br/>
+                <Grid templateColumns='repeat(3, 1fr)' style={{display: "flex", justifyContent: 'center'}}>
+                    <GridItem>
+                        <img src={pers1blue2} alt='person' style={{paddingLeft:"20px", paddingRight:"20px"}}/>
+                    </GridItem>
+                    <GridItem>
+                        <img src={pers2blue2} alt='person' style={{paddingLeft:"20px", paddingRight:"20px"}}/>
+                    </GridItem>
+                    <GridItem>
+                        <img src={pers3blue2} alt='person' style={{paddingLeft:"20px", paddingRight:"20px"}}/>
+                    </GridItem>
+                </Grid>
             </Box>
 
-            
+            <Box style={{background: '#EFF4F6'}}>
+                <Box style={{background: `url(${footer})`, backgroundPosition: 'top', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: "1050px"}}>
+                    <Box style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: "150px", paddingBottom: "50px", flexDirection: 'column' }}>
+                        <Heading as='h3' size='lg' style={{fontFamily: 'Varela Round', paddingLeft: '20px', paddingRight: '20px'}}>Inscrivez-vous à la newsletter</Heading>
+                        <br/>
+                        <p style={{textAlign: 'center'}}>Souscris pour être le premier à recevoir les informations,<br/> les nouvelles fonctionnalités et bien plus encore !</p>
+                        <br/>
+                        <Box style={{display: 'flex', flexDirection: 'row'}}>
+                            <input type="text" id="name" name="name" required minLength="4" maxLength="8" size="10" placeholder="Entrez votre adresse mail" style={{paddingLeft: '25px', width: '100%', width: '550px', height: '60px', borderRadius: '50px 0px 0px 50px', display: 'flex', justifyContent: 'flex-end', color: 'black'}}></input>
+                            <Button style={{backgroundColor: "blue", marginBottom: "150px", borderRadius: "0px 30px 30px 0px", height: '60px', color: 'white'}}>Souscrire</Button>
+                        </Box>
+                    </Box>
+                    <Grid templateColumns='repeat(4, 1fr)' style={{display: "flex", justifyContent: 'center', paddingTop: "240px"}}>
+                        <GridItem>
+                            <img src={logolikeminded3} alt='logo' style={{height: '18px'}}/>
+                            <br/>
+                            <p>L’application web pour rencontrer<br/> des gens comme vous et<br/> organiser vos sorties.</p>
+                        </GridItem>
+                        <GridItem>
+                            <Heading as='h3' size='md' style={{fontFamily: 'Varela Round', paddingLeft: '20px', paddingRight: '20px'}}>Liens importants</Heading>
+                            <br/>
+                            <p style={{paddingLeft: '20px', paddingRight: '20px'}}>À propos</p>
+                            <p style={{paddingLeft: '20px', paddingRight: '20px'}}>Contact</p>
+                            <p style={{paddingLeft: '20px', paddingRight: '20px'}}>Mentions légales</p>
+                        </GridItem>
+                        <GridItem>
+                            <Heading as='h3' size='md' style={{fontFamily: 'Varela Round', paddingLeft: '20px', paddingRight: '20px'}}>Communauté</Heading>
+                            <br/>
+                            <p style={{paddingLeft: '20px', paddingRight: '20px'}}>Fil d'actualité</p>
+                            <p style={{paddingLeft: '20px', paddingRight: '20px'}}>Groupes</p>
+                            <p style={{paddingLeft: '20px', paddingRight: '20px'}}>Amis</p>
+                            <p style={{paddingLeft: '20px', paddingRight: '20px'}}>Forums</p>
+                        </GridItem>
+                        <GridItem>
+                            <Heading as='h3' size='md' style={{fontFamily: 'Varela Round', paddingLeft: '20px', paddingRight: '20px'}}>Réseaux sociaux</Heading> 
+                            <br/>
+                            <p style={{paddingLeft: '20px', paddingRight: '20px'}}>Facebook</p>
+                            <p style={{paddingLeft: '20px', paddingRight: '20px'}}>Twitter</p>
+                            <p style={{paddingLeft: '20px', paddingRight: '20px'}}>Instagram</p>
+                        </GridItem>
+                    </Grid>
+                </Box>
+            </Box>
+            <Box style={{background: '#ECECEC', width: '100%', height: '1px'}}></Box>
+            <Box style={{background: 'white'}}>
+                <p style={{textAlign: 'center', paddingTop: '15px', paddingBottom: '15px'}}>
+                    Copyright © 2022 Like Minded - Tous droits réservés
+                </p>
+            </Box>
         </Box>
       
     );
