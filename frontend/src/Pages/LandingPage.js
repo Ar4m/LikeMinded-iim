@@ -38,36 +38,18 @@ import fleche from '../images/fleche.png'
 import {
     Box,
     Flex,
-    Text,
-    IconButton,
     Button,
     Stack,
-    Collapse,
-    Icon,
-    Link,
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
     useColorModeValue,
-    useBreakpointValue,
-    useDisclosure,
-    Image, 
-    Column
+    useDisclosure
   } from '@chakra-ui/react';
-  import {
-    HamburgerIcon,
-    CloseIcon,
-    ChevronDownIcon,
-    ChevronRightIcon,
-  } from '@chakra-ui/icons';
   
   export default function LandingPage() {
     const { isOpen, onToggle } = useDisclosure();
   
     return (
-        <Box w='100%' >
+        <Box w='100%'>
 
-            
             <Box w="100%">
                 <Flex
                 bg='#4A46FB'
