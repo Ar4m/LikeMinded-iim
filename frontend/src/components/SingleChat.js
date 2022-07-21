@@ -1,5 +1,5 @@
 import { ArrowBackIcon } from '@chakra-ui/icons';
-import { Box, FormControl, IconButton, Input, Spinner, Text, useToast } from '@chakra-ui/react';
+import { Box, Button, FormControl, IconButton, Input, Spinner, Text, useToast } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { getSender, getSenderFull } from '../config/ChatLogics';
@@ -117,6 +117,40 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     }
   };
 
+  const sendMessageOnClick = async () => {
+    if (newMessage) {
+      //socket.emit("stop typing", selectedChat._id);
+      try {
+        const config = {
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+        };
+        setNewMessage("");
+        const { data } = await axios.post(
+          "/api/message",
+          {
+            content: newMessage,
+            chatId: selectedChat._id,
+          },
+          config
+        );
+        socket.emit("new message", data);
+        setMessages([...messages, data]);
+      } catch (error) {
+        toast({
+          title: "Error Occured!",
+          description: "Failed to send the Message",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "bottom",
+        });
+      }
+    }
+  };
+
   const typingHandler = (e) => {
     setNewMessage(e.target.value);
 /*
@@ -156,6 +190,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               d={{ base: "flex", md: "none" }}
               icon={<ArrowBackIcon />}
               onClick={() => setSelectedChat("")}
+              borderRadius="25px"
             />
             {/*messages &&*/
               (!selectedChat.isGroupChat ? (
@@ -202,6 +237,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             )}
 
             <FormControl
+              d="flex"
+              flexDir="row"
               onKeyDown={sendMessage}
               id="first-name"
               isRequired
@@ -211,11 +248,15 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               
               <Input
                 variant="filled"
-                bg="#E0E0E0"
+                bg="white"
+                borderRadius="50px 0px 0px 50px"
                 placeholder="Enter a message.."
                 value={newMessage}
+                _hover="white"
                 onChange={typingHandler}
               />
+              <Button onClick={() => sendMessageOnClick()} width="50px" background="#00B6F1" color="white" borderRadius="0px 50px 50px 0px"><i className="fas fa-paper-plane"></i></Button>
+
             </FormControl>
           </Box>
         </>

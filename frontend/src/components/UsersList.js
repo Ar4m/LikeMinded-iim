@@ -22,6 +22,12 @@ const UsersList = () => {
 
   const toast = useToast();
 
+  const handleKeyPress = (event) => {
+    if(event.key === 'Enter'){
+      handleSearch()
+    }
+  }
+
   const handleSearch = async () => {
     /*if (!search) {
       toast({
@@ -95,14 +101,16 @@ const UsersList = () => {
   return (
     <Box w={{ base: "95%", md: "36%" }}>
       <Box maxW="75%" mx="auto" d="flex" justifyContent="space-between" alignItems="center" h="7vh" pb={2}>
-        <i className="fas fa-search" style={{ padding: "8px" }}></i>
+        <i className="fas fa-search" style={{ padding: "8px", color: "white" }}></i>
         <Input
           placeholder="Search by name/hobby"
           bg="white"
           mr={2}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={handleKeyPress}
         />
+        
           <Button onClick={handleSearch}>Search</Button>
       </Box>
       {loading ? <ChatLoading /> : 

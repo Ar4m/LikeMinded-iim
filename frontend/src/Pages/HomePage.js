@@ -18,27 +18,18 @@ const HomePage = () => {
 
   return (
     <Container maxW='xl' centerContent>
-      <Box
-        d="flex"
-        justifyContent="center"
-        p={3}
-        bg="white"
-        w="100%"
-        m="40px 0 15px 0"
-        borderRadius="lg"
-        borderWidth="1px"
-      >
-        <Text fontSize="4xl" fontFamily="Work sans">
+      
+        <Text fontSize="4xl" fontFamily="Work sans" marginTop="15%" marginBottom="7%" color="white">
           LikeMinded
         </Text>
-      </Box>
-      <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">
-        <Tabs isFitted variant="soft-rounded">
+      
+      
+        <Tabs isFitted variant='enclosed' w="100%">
           <TabList mb="1em">
-            <Tab>Login</Tab>
-            <Tab>Sign Up</Tab>
+            <Tab _selected={{ color: 'white', bg: '#00B6F1' }} style={{color: 'white'}}>Login</Tab>
+            <Tab _selected={{ color: 'white', bg: '#00B6F1' }} style={{color: 'white'}}>Sign Up</Tab>
           </TabList>
-          <TabPanels>
+          <TabPanels style={{ background: 'white', marginTop: '-16px', borderRadius: "0px 0px 10px 10px"}}>
             <TabPanel>
               <Login />
             </TabPanel>
@@ -47,7 +38,7 @@ const HomePage = () => {
             </TabPanel>
           </TabPanels>
         </Tabs>
-      </Box>
+      
     </Container>
   )
 }

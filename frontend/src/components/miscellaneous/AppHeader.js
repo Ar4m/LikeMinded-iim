@@ -1,9 +1,11 @@
 import { BellIcon, ChevronDownIcon } from '@chakra-ui/icons';
-import { Avatar, Box, Button, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Text } from '@chakra-ui/react';
+import { Avatar, Box, Button, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Text, Image } from '@chakra-ui/react';
 import { useHistory } from 'react-router-dom';
 import { getSender } from '../../config/ChatLogics';
 import { ChatState } from '../../Context/ChatProvider';
 import ProfileModal from './ProfileModal';
+import logoDesktop from '../../images/LogoBlue_LikeMinded.png';
+import logoMobile from '../../images/logoMobile.png';
 
 const AppHeader = () => {
 
@@ -35,9 +37,12 @@ const AppHeader = () => {
         p="5px 10px 5px 10px"
         borderWidth="3px"
       >
-        <Text fontSize={{ base: "md", md: "2xl" }} fontWeight="bold" fontFamily="Work sans" px={2}>
-          LikeMinded
-        </Text>
+        <Box display={{ base: "none", md: "contents" }} onClick={redirectMeet} cursor="pointer">
+          <Image ml="15px" height="30px" src={logoDesktop} />
+        </Box>
+        <Box display={{ base: "contents", md: "none" }} onClick={redirectMeet} cursor="pointer">
+          <Image height="40px" src={logoMobile}/>
+        </Box>
         <Box
             d="flex"
             justifyContent="space-between"

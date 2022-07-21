@@ -1,4 +1,4 @@
-import { Button, FormControl, FormLabel, Input, InputGroup, InputRightElement, useToast, VStack } from '@chakra-ui/react';
+import { Box, Button, FormControl, FormLabel, Input, InputGroup, InputRightElement, useToast, VStack } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
@@ -66,6 +66,12 @@ const Login = () => {
     }
   };
 
+  const handleKeyPress = (event) => {
+    if(event.key === 'Enter'){
+      submitHandler();
+    }
+  }
+
   return (
     <VStack spacing='5px'>
         <FormControl id="email" isRequired>
@@ -75,6 +81,7 @@ const Login = () => {
                 placeholder="Enter Your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                onKeyPress={handleKeyPress}
             />
         </FormControl>
         <FormControl id="password" isRequired>
@@ -85,6 +92,7 @@ const Login = () => {
                     placeholder="Enter Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    onKeyPress={handleKeyPress}
                 />
                 <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" onClick={handleClick}>
@@ -93,27 +101,30 @@ const Login = () => {
                 </InputRightElement>
             </InputGroup>
         </FormControl>
-
-        <Button
-            colorScheme="blue"
-            width="100%"
-            style={{ marginTop: 15 }}
-            onClick={submitHandler}
-            isLoading={loading}
-        >
-            Login
-        </Button>
-        <Button
-            variant="solid"
-            colorScheme="red"
-            width="100%"
-            onClick={() => {
-            setEmail("guest@example.com");
-            setPassword("123456");
-            }}
-        >
-            Guest User
-        </Button>
+        <Box w="100%" d="flex" flexDirection="row" style={{marginTop:"20px"}}>
+          <Button
+              background="#00B6F1"
+              color="white"
+              width="100%"
+              marginRight="10px"
+              onClick={submitHandler}
+              isLoading={loading}
+          >
+              Login
+          </Button>
+          <Button
+              variant="solid"
+              colorScheme="red"
+              width="100%"
+              marginLeft="10px"
+              onClick={() => {
+              setEmail("guest@example.com");
+              setPassword("123456");
+              }}
+          >
+              Guest User
+          </Button>
+        </Box>
     </VStack>
   )
 }

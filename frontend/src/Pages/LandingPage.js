@@ -81,14 +81,14 @@ import {
                 align={'center'}>
                 
                 <Flex flex={{ base: 1 }} justify={{ base: 'start', md: 'start' }}>
-                    <img src={logo} />
+                    <img src={logo} alt=""/>
                 </Flex>
         
                 <Box d="flex"
                         mr={20}>
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABzElEQVRIie2WO2sVURRG1xEfYGejYm5ifDVaWIil2Bt8IfYqSAox/gTBf6FBsbERgwTSaGVhqT/AVD4CPlG8isaQZFncGxwn98zdmbmkygcDw9n7O2vvM2dmDmxonZSiieoIcBYYA0aBVjc0B7wGZoDplNK7gVSmDqm31UX7a0l9qI42hZ5TfwSAZbXVM3WhN7od1NWSOlGn07VAv6u/M/BY52rL2PJ+Ui+rOwreberzUl5b3RMB3w1Af6lHMv5nPfIn+0FHjO3eOyXfFvWoekx92SN/UW3luKjXA1DViwXPdnU24LlWZG0qsU9VLsk/vS/cnwQOBTz/zV0G7w+C/xTudwY9B6rA/XffakU/u0PZiPqz4hmdiMxe8bzbxbxyxx+D1eegW4F9mfCHKvCrJmDgILA5E5utAj+tmHRSfdG9Dq8MqqdXxoHHFf4n2Yi6V10IvJPHC55LgfwFdTjbcUrpDfCgouq6ul8+IJSXGuAm8G2A0K/ArfLgKnBK6S1wFXAAUIErKaW5vuAufAoYB5YbQJeB8ZTS9Jqd6gX1S43N9Vk936BoUHer99T5AHjezv98VyNojwIm1CkLhwA7x6RHds5o0R/GhtZPfwGYgHy734je2wAAAABJRU5ErkJggg==" style={{margin: "15px"}}></img>
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAABrUlEQVRIie2VvUtWURzHP0cMBYOEwEQaKmwwyJctg6SloZehsX/AoSH/AQkCiVpEVzehoWjrZUitISFpSopyb1DIzSVfHz8O91643LzPc66PEERfuJx7zv39zuf35Zx7DvzX35A6oj5XV9Tv6jP1SiFmUD2RdXrVsYqQpx6uffWx+kB9r77MJz1Ua+r9SMhoCaSoH2qP2pclzuY+TqltdSAt6moEpKZ+Vn/mQdOFoG/q9RLQ5Ug3quvqcD75bkngR/WeejIXe60C6GaW15q2b4FlYKhgYCR9ttQvwFegFrOOqdazl5BWeRvYBGaA3goTNdLZEMIqQEs6cAf4AJw7RsgO8CvrZKDXadv6R/jRtRRC2CuC3gELxwgBmDt0VO1QX1XYUfW0p14sLUEdUJ+oG02CXtT1qo43a8XETX8jUIf6qUnQROPlS2Cn1Bl19wiQJbXazlW71MkKkGX1TFXIkMmFth8JWVQ7680Z1PPADaATuEBytvVF1rQLTAKPQgjbMQ6uqm+MX5ffJndY+b9SdFQAdgO3gGHgEnAaaCc5cNeAFWARmA8hbMRC/k0dAF1yoPDRYAwKAAAAAElFTkSuQmCC" style={{margin: "15px"}}></img>
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAACS0lEQVRYhe2Wz05TURDGvyGGnTXhCZTUyL/2Ddi59r8hrg0PoDsSQY0+golJW2OihAUr4k6fgKUYIygUiOzViJtW2p+Le244XO69Pbd0Z7/kpOfemW9mzpzp3JGGGCIHQBVoAPtAm3C0HacBVPpxbMAToFPAaRY6wBJgab7OZcTw2K0Y25K+SGoHnmFU0rSksqQRSU8lIelZyOmr3skPgfuBTtNszQF/nK0jYCaE9MpLX1/OgZvAL6AOzHv26iHkfae8naMzBSwAr91aACY9ed3Z+Onqqemed0MCiKt9LUV2AVgBuinF1gWWgRJwCagB1xxvzem0QgKIsZri/FOK4yQ2gFKCuxoLk/5GekZ0jJeS4v/0gaQ7kkpu3ZL01cmqkl4UsHsSaRlwdx6n/TswlsIbAw6865jwZGfOwA1JcSN5YGY/kgru3cP40XF6IjSAsrf/kKP33ttfHmQAoUhtt4MIYMfbX83R82WZfSQXGUU46RXhVk4RfnM6nYEWoZltSlpxj1ckbQB3XdMpAbclrev43pfNbCv82CdPktWISq7J9MJH4HyCWygDf93vqP/SzH5LmpX0VtGnNYmupDeSZs3sMCGLbZ36nJ+qWmBP0kVJTTMrJ+VOZ0LSdUnxPW9KepeWdqJBZEfSuKQ9MxtPs+kTGl4653KVAwDc8+zVQggVouEBomFinoxxKtC5P5BMJ3VSDQNLisaoGE1Jn1VsJKsoSnuMRTN7Hhq5AYteJs6CI+BRX1kEZoimm12gVcBpy3FqwFRhx0P8V/gHgHqKaAFo3VkAAAAASUVORK5CYII=" style={{margin: "15px"}}></img>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABzElEQVRIie2WO2sVURRG1xEfYGejYm5ifDVaWIil2Bt8IfYqSAox/gTBf6FBsbERgwTSaGVhqT/AVD4CPlG8isaQZFncGxwn98zdmbmkygcDw9n7O2vvM2dmDmxonZSiieoIcBYYA0aBVjc0B7wGZoDplNK7gVSmDqm31UX7a0l9qI42hZ5TfwSAZbXVM3WhN7od1NWSOlGn07VAv6u/M/BY52rL2PJ+Ui+rOwreberzUl5b3RMB3w1Af6lHMv5nPfIn+0FHjO3eOyXfFvWoekx92SN/UW3luKjXA1DViwXPdnU24LlWZG0qsU9VLsk/vS/cnwQOBTz/zV0G7w+C/xTudwY9B6rA/XffakU/u0PZiPqz4hmdiMxe8bzbxbxyxx+D1eegW4F9mfCHKvCrJmDgILA5E5utAj+tmHRSfdG9Dq8MqqdXxoHHFf4n2Yi6V10IvJPHC55LgfwFdTjbcUrpDfCgouq6ul8+IJSXGuAm8G2A0K/ArfLgKnBK6S1wFXAAUIErKaW5vuAufAoYB5YbQJeB8ZTS9Jqd6gX1S43N9Vk936BoUHer99T5AHjezv98VyNojwIm1CkLhwA7x6RHds5o0R/GhtZPfwGYgHy734je2wAAAABJRU5ErkJggg==" alt="réseaux" style={{margin: "15px"}}></img>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAABrUlEQVRIie2VvUtWURzHP0cMBYOEwEQaKmwwyJctg6SloZehsX/AoSH/AQkCiVpEVzehoWjrZUitISFpSopyb1DIzSVfHz8O91643LzPc66PEERfuJx7zv39zuf35Zx7DvzX35A6oj5XV9Tv6jP1SiFmUD2RdXrVsYqQpx6uffWx+kB9r77MJz1Ua+r9SMhoCaSoH2qP2pclzuY+TqltdSAt6moEpKZ+Vn/mQdOFoG/q9RLQ5Ug3quvqcD75bkngR/WeejIXe60C6GaW15q2b4FlYKhgYCR9ttQvwFegFrOOqdazl5BWeRvYBGaA3goTNdLZEMIqQEs6cAf4AJw7RsgO8CvrZKDXadv6R/jRtRRC2CuC3gELxwgBmDt0VO1QX1XYUfW0p14sLUEdUJ+oG02CXtT1qo43a8XETX8jUIf6qUnQROPlS2Cn1Bl19wiQJbXazlW71MkKkGX1TFXIkMmFth8JWVQ7680Z1PPADaATuEBytvVF1rQLTAKPQgjbMQ6uqm+MX5ffJndY+b9SdFQAdgO3gGHgEnAaaCc5cNeAFWARmA8hbMRC/k0dAF1yoPDRYAwKAAAAAElFTkSuQmCC" style={{margin: "15px"}} alt="réseaux"></img>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAACS0lEQVRYhe2Wz05TURDGvyGGnTXhCZTUyL/2Ddi59r8hrg0PoDsSQY0+golJW2OihAUr4k6fgKUYIygUiOzViJtW2p+Le244XO69Pbd0Z7/kpOfemW9mzpzp3JGGGCIHQBVoAPtAm3C0HacBVPpxbMAToFPAaRY6wBJgab7OZcTw2K0Y25K+SGoHnmFU0rSksqQRSU8lIelZyOmr3skPgfuBTtNszQF/nK0jYCaE9MpLX1/OgZvAL6AOzHv26iHkfae8naMzBSwAr91aACY9ed3Z+Onqqemed0MCiKt9LUV2AVgBuinF1gWWgRJwCagB1xxvzem0QgKIsZri/FOK4yQ2gFKCuxoLk/5GekZ0jJeS4v/0gaQ7kkpu3ZL01cmqkl4UsHsSaRlwdx6n/TswlsIbAw6865jwZGfOwA1JcSN5YGY/kgru3cP40XF6IjSAsrf/kKP33ttfHmQAoUhtt4MIYMfbX83R82WZfSQXGUU46RXhVk4RfnM6nYEWoZltSlpxj1ckbQB3XdMpAbclrev43pfNbCv82CdPktWISq7J9MJH4HyCWygDf93vqP/SzH5LmpX0VtGnNYmupDeSZs3sMCGLbZ36nJ+qWmBP0kVJTTMrJ+VOZ0LSdUnxPW9KepeWdqJBZEfSuKQ9MxtPs+kTGl4653KVAwDc8+zVQggVouEBomFinoxxKtC5P5BMJ3VSDQNLisaoGE1Jn1VsJKsoSnuMRTN7Hhq5AYteJs6CI+BRX1kEZoimm12gVcBpy3FqwFRhx0P8V/gHgHqKaAFo3VkAAAAASUVORK5CYII=" alt="réseaux" style={{margin: "15px"}}></img>
                 </Box>
                 
 
@@ -140,7 +140,7 @@ import {
                             <Button style={{backgroundColor: "transparent", marginBottom: "150px", border:'1px solid white', borderRadius: "25px"}}>Découvrir Maintenant<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "25px", height: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                         </GridItem>
                         <GridItem>
-                            <img style={{marginTop: "150px"}} src={people} alt={people}></img>
+                            <img style={{marginTop: "150px"}} src={people} alt="people"></img>
                         </GridItem>
                     </Grid>
                 </Box>
@@ -216,12 +216,12 @@ import {
                     <br/>
                     <Grid templateColumns='repeat(5, 1fr)' style={{marginTop: '50px'}}>
                         <GridItem style={{display: 'flex', alignItems: 'flex-end', justifyContent: 'center', marginBottom: '50px'}}>
-                            <img src={person1b} style={{height: '165px'}}/>
+                            <img src={person1b} style={{height: '165px'}} alt=""/>
                         </GridItem>
                         <GridItem style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
-                            <img src={person1a} style={{height: '225px', width: '225px'}}/>
+                            <img src={person1a} style={{height: '225px', width: '225px'}} alt=""/>
                             <br/>
-                            <img src={person1c} style={{height: '165px', width: '165px'}}/>
+                            <img src={person1c} style={{height: '165px', width: '165px'}} alt=""/>
                         </GridItem>
                         <GridItem style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <div style={{height: '250px', width: '250px', backgroundImage: `url(${nader})`, backgroundSize: '250px', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', flexDirection: 'column', color: 'white'}}>
@@ -232,12 +232,12 @@ import {
                             </div>
                         </GridItem>
                         <GridItem style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
-                            <img src={person2a} style={{height: '165px', width: '165px'}}/>
+                            <img src={person2a} style={{height: '165px', width: '165px'}} alt=""/>
                             <br/>
-                            <img src={person2c} style={{height: '225px', width: '225px'}}/>
+                            <img src={person2c} style={{height: '225px', width: '225px'}} alt=""/>
                         </GridItem>
                         <GridItem style={{marginTop: '50px', display: 'flex', justifyContent: 'center'}}>
-                            <img src={person2b} style={{height: '165px'}}/>
+                            <img src={person2b} style={{height: '165px'}} alt=""/>
                         </GridItem>
                     </Grid>
                     <br/>
@@ -266,17 +266,17 @@ import {
                     <br/>
                     <Grid templateColumns='repeat(2, 1fr)' style={{}}>
                         <GridItem>
-                            <img src={paris} style={{marginRight: '10px', height: '100%'}}/>
+                            <img src={paris} style={{marginRight: '10px', height: '100%'}} alt=""/>
                         </GridItem>
                         <GridItem>
                             <Grid templateColumns='repeat(2, 1fr)'>
                                 <GridItem>
-                                    <img src={marseille} style={{marginLeft: '10px', marginBottom: '10px', height: '49%'}}/>
-                                    <img src={strasbourg} style={{marginLeft: '10px', height: '49%'}}/>
+                                    <img src={marseille} style={{marginLeft: '10px', marginBottom: '10px', height: '49%'}} alt=""/>
+                                    <img src={strasbourg} style={{marginLeft: '10px', height: '49%'}} alt=""/>
                                 </GridItem>
                                 <GridItem>
-                                    <img src={lyon} style={{marginLeft: '20px', marginBottom: '10px', height: '49%'}}/> 
-                                    <img src={bordeaux} style={{marginLeft: '20px', height: '49%'}}/> 
+                                    <img src={lyon} style={{marginLeft: '20px', marginBottom: '10px', height: '49%'}} alt=""/> 
+                                    <img src={bordeaux} style={{marginLeft: '20px', height: '49%'}} alt=""/> 
                                 </GridItem>
                             </Grid>
                         </GridItem>
@@ -296,7 +296,7 @@ import {
                                 <Button style={{backgroundColor: "#2D5BE3", marginTop: "150px", borderRadius: "25px", color: "white"}}>Découvrir l'app<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "25px", height: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                             </GridItem>
                             <GridItem>
-                                <img src={iphone} />
+                                <img src={iphone} alt=""/>
                             </GridItem>
                         
                     </Grid>
@@ -312,20 +312,20 @@ import {
                     <Grid templateColumns='repeat(4, 1fr)' >
                         
                             <GridItem style={{marginTop: '110px', marginBottom: '110px'}}>
-                                <img src={voyages} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
-                                <img src={architecture} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
+                                <img src={voyages} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}} alt=""/>
+                                <img src={architecture} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}} alt=""/>
                             </GridItem>
                             <GridItem style={{marginTop: '110px', marginBottom: '110px'}}>
-                                <img src={lecture} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
-                                <img src={mode} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
+                                <img src={lecture} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}} alt=""/>
+                                <img src={mode} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}} alt=""/>
                             </GridItem>
                             <GridItem style={{marginTop: '110px', marginBottom: '110px'}}>
-                                <img src={sport} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
-                                <img src={nouvellestechnologies} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
+                                <img src={sport} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}} alt=""/>
+                                <img src={nouvellestechnologies} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}} alt=""/>
                             </GridItem>
                             <GridItem style={{marginTop: '110px', marginBottom: '110px'}}>
-                                <img src={automobile} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
-                                <img src={musique} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}}/>
+                                <img src={automobile} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}} alt=""/>
+                                <img src={musique} style={{marginBottom:"20px", paddingLeft: '10px', paddingRight: '10px'}} alt=""/>
                             </GridItem>
                         
                     </Grid>
@@ -362,7 +362,7 @@ import {
                         <p style={{textAlign: 'center'}}>Souscris pour être le premier à recevoir les informations,<br/> les nouvelles fonctionnalités et bien plus encore !</p>
                         <br/>
                         <Box style={{display: 'flex', flexDirection: 'row'}}>
-                            <input type="text" id="name" name="name" required minLength="4" maxLength="8" size="10" placeholder="Entrez votre adresse mail" style={{paddingLeft: '25px', width: '100%', width: '550px', height: '60px', borderRadius: '50px 0px 0px 50px', display: 'flex', justifyContent: 'flex-end', color: 'black'}}></input>
+                            <input type="text" id="name" name="name" required minLength="4" maxLength="8" size="10" placeholder="Entrez votre adresse mail" style={{paddingLeft: '25px', width: '100%', height: '60px', borderRadius: '50px 0px 0px 50px', display: 'flex', justifyContent: 'flex-end', color: 'black'}}></input>
                             <Button style={{backgroundColor: "blue", marginBottom: "150px", borderRadius: "0px 30px 30px 0px", height: '60px', color: 'white'}}>Souscrire</Button>
                         </Box>
                     </Box>

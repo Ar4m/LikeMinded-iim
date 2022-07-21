@@ -4,12 +4,13 @@ import React from 'react'
 const UserListItem = ({ user, handleFunction }) => {
 
     let userHobbies = user.hobbies
-    let hobbiesList = userHobbies.map((userHobbies) =>
+    let hobbiesList = userHobbies.reverse().map((userHobbies) =>
         <Tag
         key={userHobbies}
         borderRadius='full'
         variant='subtle'
-        colorScheme='blue'
+        background="#00B6F1"
+        border='solid 1px white'
         px="2" py="1"
         ml="1" mb="1"
         >
@@ -23,7 +24,7 @@ const UserListItem = ({ user, handleFunction }) => {
       cursor="pointer"
       bg="white"
       _hover={{
-        background: "#38B2AC",
+        background: "#00B6F1",
         color: "white",
       }}
       w="100%"

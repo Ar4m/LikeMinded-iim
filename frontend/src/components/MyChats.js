@@ -1,4 +1,4 @@
-import { Box, Button, Stack, Text, useToast } from '@chakra-ui/react';
+import { Box, Button, Divider, Stack, Text, useToast } from '@chakra-ui/react';
 import { AddIcon } from "@chakra-ui/icons";
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
@@ -75,6 +75,7 @@ const MyChats = ({ fetchAgain, setFetchAgain }) => {
             d="flex"
             fontSize={{ base: "17px", md: "10px", lg: "17px" }}
             rightIcon={<AddIcon />}
+            borderRadius="50px"
           >
             New Group Chat
           </Button>
@@ -83,8 +84,7 @@ const MyChats = ({ fetchAgain, setFetchAgain }) => {
       <Box
         d="flex"
         flexDir="column"
-        p={3}
-        bg="#F8F8F8"
+        bg="white"
         w="100%"
         h="100%"
         borderRadius="lg"
@@ -92,15 +92,17 @@ const MyChats = ({ fetchAgain, setFetchAgain }) => {
       >
         {chats ? (
           <Stack overflowY="scroll">
+            <Divider />
             {chats.map((chat) => (
-              <Box
+              <Box mt="0 !important">
+                <Box
                 onClick={() => setSelectedChat(chat)}
                 cursor="pointer"
-                bg={selectedChat?._id === chat._id ? "#38B2AC" : "#E8E8E8"}
+                mt="0 !important"
+                borderRadius="8px"
+                bg={selectedChat?._id === chat._id ? "#00B6F1" : "white"}
                 color={selectedChat?._id === chat._id ? "white" : "black"}
-                px={3}
-                py={2}
-                borderRadius="lg"
+                p={4}
                 key={chat._id}
               >
                 <Text>
@@ -108,8 +110,12 @@ const MyChats = ({ fetchAgain, setFetchAgain }) => {
                     ? getSender(loggedUser, chat.users)
                     : chat.chatName}
                 </Text>
+                
+                </Box>
+                <Divider />
               </Box>
             ))}
+            
           </Stack>
         ) : (
           <ChatLoading />
