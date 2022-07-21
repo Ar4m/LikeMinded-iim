@@ -196,7 +196,9 @@ const Signup = () => {
                     <Badge
                     borderRadius="full"
                     px="3" py="2"
-                    colorScheme="blue"
+                    //colorScheme="blue"
+                    background="#00B6F1"
+                    color="white"
                     mx={1} my={1}
                     cursor="pointer"
                     >

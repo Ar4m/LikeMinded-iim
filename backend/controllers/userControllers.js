@@ -40,6 +40,35 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
+const editUser = asyncHandler(async (req, res) => {
+  const { name } = req.body;
+
+  if (!name) {
+    res.status(400);
+    throw new Error("Please Enter all the Feilds");
+  }
+
+  const user = await User.findByIdAndUpdate(
+    user._id,
+    {
+      name
+    },
+    {
+      new: true,
+    }
+  )
+
+  if (user) {
+    res.status(201).json({
+      _id: user._id,
+      name: user.name
+    });
+  } else {
+    res.status(400);
+    throw new Error("Failed to Create the User");
+  }
+});
+
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -75,4 +104,4 @@ const allUsers = asyncHandler(async (req, res) => {
   res.send(users);
 });
 
-module.exports = { registerUser, authUser, allUsers };
+module.exports = { registerUser, editUser, authUser, allUsers };
