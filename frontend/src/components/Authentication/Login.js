@@ -107,6 +107,7 @@ const Login = () => {
               color="white"
               width="100%"
               marginRight="10px"
+              _hover={{ color:"#00B6F1", background:"#e2e8f0" }}
               onClick={submitHandler}
               isLoading={loading}
           >
@@ -118,8 +119,8 @@ const Login = () => {
               width="100%"
               marginLeft="10px"
               onClick={() => {
-              setEmail("guest@example.com");
-              setPassword("123456");
+                setEmail("guest@example.com");
+                setPassword("123456");
               }}
           >
               Guest User

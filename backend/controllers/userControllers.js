@@ -41,7 +41,7 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 const editUser = asyncHandler(async (req, res) => {
-  const { name } = req.body;
+  const { id, name } = req.body;
 
   if (!name) {
     res.status(400);
@@ -49,9 +49,9 @@ const editUser = asyncHandler(async (req, res) => {
   }
 
   const user = await User.findByIdAndUpdate(
-    user._id,
+    id,
     {
-      name
+     name: name
     },
     {
       new: true,

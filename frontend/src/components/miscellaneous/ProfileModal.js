@@ -90,7 +90,7 @@ const ProfileModal = ({ user, children }) => {
       };
       const { data } = await axios.put(
         "/api/user",
-        { name },
+        { id: loggedInUser._id,name: name },
         config
       );
       console.log(data);
@@ -171,7 +171,7 @@ const ProfileModal = ({ user, children }) => {
                 //height='auto'
                 size='2xl'
                 src={user.pic}
-                name={user.name}
+                name={loggedInUser.name}
               />
             </Box>
             { loggedInUser._id === user._id &&
@@ -217,7 +217,7 @@ const ProfileModal = ({ user, children }) => {
                     <Input
                       fontSize="18px"
                       placeholder="Enter Your Name"
-                      defaultValue={user.name}
+                      defaultValue={loggedInUser.name}
                       onChange={(e) => setName(e.target.value)}
                     />
                   </FormControl>
@@ -270,7 +270,10 @@ const ProfileModal = ({ user, children }) => {
           
           <ModalFooter>
             { loggedInUser._id !== user._id ? 
-              <Button onClick={() => accessChat(user._id)}>Start Chat</Button> : 
+              <Button onClick={() => accessChat(user._id)}>
+                <i className="far fa-comment" style={{ paddingRight: "8px" }}></i>
+                Start Chat
+              </Button> : 
               <Box>
                 { editable === true && <Button bg="red" color="white" onClick={() => submitEdit() }>Save</Button> }
                 <Button ml="2" onClick={() => editButton() }> { editable === false ? "Edit" : "See Profile" }</Button>

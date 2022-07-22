@@ -113,6 +113,7 @@ const UsersList = () => {
         
           <Button onClick={handleSearch}>Search</Button>
       </Box>
+      
       {loading ? <ChatLoading /> : 
         (
           searchResult?.map((user) => (
