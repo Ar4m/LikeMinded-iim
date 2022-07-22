@@ -35,6 +35,7 @@ import footer from '../images/footer.png'
 import nader from '../images/nader.png'
 import logolikeminded3 from '../images/logolikeminded3.png'
 import fleche from '../images/fleche.png'
+import { useHistory } from 'react-router-dom';
 import {
     Box,
     Flex,
@@ -46,6 +47,12 @@ import {
   
   export default function LandingPage() {
     const { isOpen, onToggle } = useDisclosure();
+
+    const history = useHistory();
+
+    const redirectHome = () => {
+        history.push("/");
+      };
   
     return (
         <Box w='100%'>
@@ -92,7 +99,7 @@ import {
                     _hover={{
                         bg: 'lightgrey',
                     }}
-                    href={'/'}>
+                    onClick={redirectHome}>
                     Connexion
                     </Button>
                     
@@ -344,7 +351,7 @@ import {
                         <p style={{textAlign: 'center'}}>Souscris pour être le premier à recevoir les informations,<br/> les nouvelles fonctionnalités et bien plus encore !</p>
                         <br/>
                         <Box style={{display: 'flex', flexDirection: 'row'}}>
-                            <input type="text" id="name" name="name" required minLength="4" maxLength="8" size="10" placeholder="Entrez votre adresse mail" style={{paddingLeft: '25px', width: '100%', height: '60px', borderRadius: '50px 0px 0px 50px', display: 'flex', justifyContent: 'flex-end', color: 'black'}}></input>
+                            <input type="text" id="name" name="name" required minLength="4" maxLength="8" size="10" placeholder="Entrez votre adresse mail" style={{paddingLeft: '25px', width: '350px', height: '60px', borderRadius: '50px 0px 0px 50px', display: 'flex', justifyContent: 'flex-end', color: 'black'}}></input>
                             <Button style={{backgroundColor: "blue", marginBottom: "150px", borderRadius: "0px 30px 30px 0px", height: '60px', color: 'white'}}>Souscrire</Button>
                         </Box>
                     </Box>

@@ -1,4 +1,4 @@
-import { Box, Button, Input, Spinner, useToast } from '@chakra-ui/react';
+import { Box, Button, Container, Grid, GridItem, Image, Input, Spinner, useToast } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { ChatState } from '../Context/ChatProvider';
@@ -6,6 +6,7 @@ import ChatLoading from './ChatLoading';
 import UserListItem from './UserAvatar/UserListItem';
 import { useHistory } from 'react-router-dom';
 import ProfileModal from './miscellaneous/ProfileModal';
+import bandeau from '../images/bandeau.png';
 
 const UsersList = () => {
 
@@ -99,35 +100,41 @@ const UsersList = () => {
   }, []);
 
   return (
-    <Box w={{ base: "95%", md: "36%" }}>
-      <Box maxW="75%" mx="auto" d="flex" justifyContent="space-between" alignItems="center" h="7vh" pb={2}>
-        <i className="fas fa-search" style={{ padding: "8px", color: "white" }}></i>
-        <Input
-          placeholder="Search by name/hobby"
-          bg="white"
-          mr={2}
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          onKeyDown={handleKeyPress}
-        />
+    <Box d="flex" justifyContent="center">
+      <Box w={{ base: "95%", md: "80%" }} >
+        <Image src={bandeau} margin="auto"/>
+        <Box maxW="50%" mx="auto" d="flex" justifyContent="center" alignItems="center" h="7vh" pb={2} mt="20px">
+          <Input
+           placeholder="Search by name/hobby"
+           bg="white"
+           mr={1}
+           value={search}
+           onChange={(e) => setSearch(e.target.value)}
+           onKeyDown={handleKeyPress}
+          />
         
-          <Button onClick={handleSearch}>Search</Button>
+          <Button onClick={handleSearch} background="#00B6F1" color="white"><i className="fas fa-search" style={{ color: "white" }}></i></Button>
+        </Box>
+        <Box d="flex" justifyContent="center">
+          <Grid maxW="100%" templateColumns='repeat(4, 1fr)'>
+            {loading ? <ChatLoading /> : 
+            (
+              searchResult?.map((user) => (
+                <GridItem>
+                  <ProfileModal user={user} key={user._id}>
+                    <UserListItem
+                      key={user._id}
+                      user={user}
+                    />
+                  </ProfileModal>
+                </GridItem>
+              ))
+            )
+          }
+          {loadingChat && <Spinner ml="auto" d="flex" />}
+          </Grid>
+        </Box>
       </Box>
-      
-      {loading ? <ChatLoading /> : 
-        (
-          searchResult?.map((user) => (
-          
-            <ProfileModal user={user} key={user._id}>
-              <UserListItem
-                key={user._id}
-                user={user}
-              />
-            </ProfileModal>
-          ))
-        )
-      }
-      {loadingChat && <Spinner ml="auto" d="flex" />}
     </Box>
   );
 };
