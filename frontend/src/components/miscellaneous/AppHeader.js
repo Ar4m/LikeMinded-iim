@@ -27,6 +27,10 @@ const AppHeader = () => {
     history.push("/meet");
   };
 
+  const redirectWelcome = () => {
+    history.push("/welcome");
+  };
+
   return (
     <Box
         d="flex"
@@ -37,10 +41,10 @@ const AppHeader = () => {
         p="5px 10px 5px 10px"
         borderWidth="3px"
       >
-        <Box display={{ base: "none", md: "contents" }} onClick={redirectMeet} cursor="pointer">
+        <Box display={{ base: "none", md: "contents" }} onClick={redirectWelcome} cursor="pointer">
           <Image ml="15px" height="30px" src={logoDesktop} />
         </Box>
-        <Box display={{ base: "contents", md: "none" }} onClick={redirectMeet} cursor="pointer">
+        <Box display={{ base: "contents", md: "none" }} onClick={redirectWelcome} cursor="pointer">
           <Image height="40px" src={logoMobile}/>
         </Box>
         <Box

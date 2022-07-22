@@ -19,7 +19,7 @@ const HomePage = () => {
   return (
     <Container maxW='xl' centerContent>
       
-        <Text fontSize="4xl" fontFamily="Work sans" marginTop="15%" marginBottom="7%" color="white">
+        <Text fontSize="4xl" fontFamily="Work sans" marginTop="15%" marginBottom="7%" color="white" onClick={() => history.push("/welcome")} cursor='pointer'>
           LikeMinded
         </Text>
       
