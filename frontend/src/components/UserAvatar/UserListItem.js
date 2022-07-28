@@ -72,7 +72,6 @@ const UserListItem = ({ user, handleFunction }) => {
       borderRadius="8px"
       d="flex"
       flexDirection="column"
-      justifyContent="center"
     >
       <Box height="24%" width="100%" position="relative" top="0" display="flex" justifyContent="center">
         <Box height="60%" width="100%" background="#00B6F1" borderRadius="8px 8px 0 0" position="relative" top="0"></Box>

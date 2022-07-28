@@ -171,7 +171,7 @@ const ProfileModal = ({ user, children }) => {
                 //height='auto'
                 size='2xl'
                 src={user.pic}
-                name={loggedInUser.name}
+                name={user.name}
               />
             </Box>
             { loggedInUser._id === user._id &&
