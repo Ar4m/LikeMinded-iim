@@ -239,7 +239,9 @@ import {
                     <Box w="80%" mx="auto" style={{marginTop: '150px', color: 'white'}}>
                         <Heading as='h2' size='xl' style={{fontFamily: 'Varela Round'}}>Like Minded rend la vie plus<br/> simple & facile</Heading>
                         <br/>                   
-                        <p style={{marginBottom: "150px"}}>Ciblez la commune qui vous intéresse et découvrez les gens qui vivent là où<br/> vous êtes. Que vous veniez d’emménager dans une nouvelle ville ou que vous<br/> soyez de passage en vacances, partez à la découverte de vos semblables !</p>
+                        <p style={{marginBottom: "35px"}}>Ciblez la commune qui vous intéresse et découvrez les gens qui vivent là où<br/> vous êtes. Que vous veniez d’emménager dans une nouvelle ville ou que vous<br/> soyez de passage en vacances, partez à la découverte de vos semblables !</p>
+                       
+                        <Button style={{backgroundColor: "white", marginBottom: "120px", borderRadius: "25px", color: "black"}}>En savoir plus<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                     </Box>
                 </GridItem>
                 <GridItem>
