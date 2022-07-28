@@ -237,7 +237,7 @@ import {
             <Grid templateColumns='repeat(2, 1fr)'>
                 <GridItem style={{backgroundImage: `url(${background})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
                     <Box w="80%" mx="auto" style={{marginTop: '150px', color: 'white'}}>
-                        <Heading as='h2' size='2xl' style={{fontFamily: 'Varela Round'}}>Like Minded rend la vie plus<br/> simple & facile</Heading>
+                        <Heading as='h2' size='xl' style={{fontFamily: 'Varela Round'}}>Like Minded rend la vie plus<br/> simple & facile</Heading>
                         <br/>                   
                         <p style={{marginBottom: "150px"}}>Ciblez la commune qui vous intéresse et découvrez les gens qui vivent là où<br/> vous êtes. Que vous veniez d’emménager dans une nouvelle ville ou que vous<br/> soyez de passage en vacances, partez à la découverte de vos semblables !</p>
                     </Box>
