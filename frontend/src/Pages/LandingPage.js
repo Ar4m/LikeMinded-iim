@@ -126,7 +126,7 @@ import {
                             <Heading as='h2' size='2xl'>+10 000</Heading>
                             <p>personnes connectées !</p>
                             <br/>
-                            <Button style={{backgroundColor: "transparent", marginBottom: "150px", border:'1px solid white', borderRadius: "25px"}}>Découvrir Maintenant<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "25px", height: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
+                            <Button style={{backgroundColor: "transparent", marginBottom: "150px", border:'1px solid white', borderRadius: "25px"}}>Découvrir Maintenant<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                         </GridItem>
                         <GridItem>
                             <img style={{marginTop: "150px"}} src={people} alt="people"></img>
@@ -140,14 +140,14 @@ import {
                     <Grid templateColumns='repeat(2, 1fr)'>
                         <GridItem>
                             <p style={{marginTop: "150px", color: '#2D5BE3'}}>Ce que nous faisons</p>
-                            <Heading as='h2' size='2xl' style={{fontFamily: 'Varela Round'}}>Pourquoi rejoindre la communauté de <br/>Like Minded ?</Heading>
+                            <Heading as='h2' size='lg' style={{fontFamily: 'Varela Round'}}>Pourquoi rejoindre<br/> la communauté de Like Minded ?</Heading>
                             <br />
                             <p>Nous avons pour ambition de regrouper des gens ayant une<br/> 
                             grande variété de hobbies afin de se regrouper autour de<br/>
                             sujets communs pour faire de nouvelles rencontres,<br/>
                             poursuivre des projets ou organiser des événements. </p>
                             <br/>
-                            <Button style={{backgroundColor: "transparent", marginBottom: "150px", border:'1px solid #D7D7D7', borderRadius: "25px"}}>Rejoindre la communauté<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "25px", height: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
+                            <Button style={{backgroundColor: "transparent", marginBottom: "150px", border:'1px solid #D7D7D7', borderRadius: "25px"}}>Rejoindre la communauté<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                         </GridItem>
                         <GridItem style={{marginTop: "150px", marginBottom: "150px"}}>
                             <Box style={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
@@ -190,7 +190,7 @@ import {
                                 <img src={world} alt="world" />
                             </GridItem>
                             <GridItem>
-                                <Heading as='h2' size='2xl' style={{marginTop: "150px", color: '#2D5BE3'}}>Notre communauté est présente<br/> dans plus de 130 villes !</Heading>
+                                <Heading as='h2' size='lg' style={{marginTop: "150px", color: '#2D5BE3'}}>Notre communauté est présente<br/> dans plus de 130 villes !</Heading>
                                 <br/>
                                 <p style={{marginBottom: "150px"}}>Ciblez la commune qui vous intéresse et découvrez les gens qui vivent là où<br/> vous êtes. Que vous veniez d’emménager dans une nouvelle ville ou que vous<br/> soyez de passage en vacances, partez à la découverte de vos semblables !</p>
                             </GridItem>
@@ -231,13 +231,13 @@ import {
                     </Grid>
                     <br/>
                     <br/>
-                    <Button style={{backgroundColor: "transparent", marginBottom: "120px", border:'1px solid #D7D7D7', borderRadius: "25px"}}>Découvrir les membres<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "25px", height: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
+                    <Button style={{backgroundColor: "transparent", marginBottom: "120px", border:'1px solid #D7D7D7', borderRadius: "25px"}}>Découvrir les membres<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                 </Box>
             </Box>
             <Grid templateColumns='repeat(2, 1fr)'>
                 <GridItem style={{backgroundImage: `url(${background})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
                     <Box w="80%" mx="auto" style={{marginTop: '150px', color: 'white'}}>
-                        <Heading as='h2' size='2xl' style={{fontFamily: 'Varela Round'}}>Like Minded rend la vie plus simple & facile</Heading>
+                        <Heading as='h2' size='2xl' style={{fontFamily: 'Varela Round'}}>Like Minded rend la vie plus<br/> simple & facile</Heading>
                         <br/>                   
                         <p style={{marginBottom: "150px"}}>Ciblez la commune qui vous intéresse et découvrez les gens qui vivent là où<br/> vous êtes. Que vous veniez d’emménager dans une nouvelle ville ou que vous<br/> soyez de passage en vacances, partez à la découverte de vos semblables !</p>
                     </Box>
@@ -278,11 +278,11 @@ import {
                     <Grid templateColumns='repeat(2, 1fr)' >
                         
                             <GridItem style={{marginTop: '150px', marginBottom: '150px'}}>
-                                <Heading as='h4' size='lg' style={{fontFamily: 'Varela Round', textAlign: 'center'}}>Like Minded rend la vie plus simple & facile</Heading>
+                                <Heading as='h4' size='lg' style={{fontFamily: 'Varela Round'}}>Like Minded rend la vie plus<br/> simple & facile</Heading>
                                 <br/>
-                                <p style={{ textAlign: 'center'}}>Oubliez l’angoisse du premier pas grâce à Like Minded :<br/> nous vous proposons de nouvelles rencontres pour<br/> poursuivre vos hobbies et échanger sur vos centres<br/> d’intérêts avec des passionnés.</p>
+                                <p>Oubliez l’angoisse du premier pas grâce à Like Minded :<br/> nous vous proposons de nouvelles rencontres pour<br/> poursuivre vos hobbies et échanger sur vos centres<br/> d’intérêts avec des passionnés.</p>
                                 <br/>
-                                <Button style={{backgroundColor: "#2D5BE3", marginTop: "150px", borderRadius: "25px", color: "white"}}>Découvrir l'app<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "25px", height: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
+                                <Button style={{backgroundColor: "#2D5BE3", marginTop: "150px", borderRadius: "25px", color: "white"}}>Découvrir l'app<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                             </GridItem>
                             <GridItem>
                                 <img src={iphone} alt=""/>
@@ -318,7 +318,7 @@ import {
                             </GridItem>
                         
                     </Grid>
-                    <Button style={{backgroundColor: "transparent", marginTop: "20px", marginBottom: "40px", border:'1px solid #D7D7D7', borderRadius: "25px"}}>Voir tous les groupes<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "25px", height: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
+                    <Button style={{backgroundColor: "transparent", marginTop: "20px", marginBottom: "40px", border:'1px solid #D7D7D7', borderRadius: "25px"}}>Voir tous les groupes<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                 </Box>
                 
             </Box>
@@ -351,8 +351,8 @@ import {
                         <p style={{textAlign: 'center'}}>Souscris pour être le premier à recevoir les informations,<br/> les nouvelles fonctionnalités et bien plus encore !</p>
                         <br/>
                         <Box style={{display: 'flex', flexDirection: 'row'}}>
-                            <input type="text" id="name" name="name" required minLength="4" maxLength="8" size="10" placeholder="Entrez votre adresse mail" style={{paddingLeft: '25px', width: '350px', height: '60px', borderRadius: '50px 0px 0px 50px', display: 'flex', justifyContent: 'flex-end', color: 'black'}}></input>
-                            <Button style={{backgroundColor: "blue", marginBottom: "150px", borderRadius: "0px 30px 30px 0px", height: '60px', color: 'white'}}>Souscrire</Button>
+                            <input type="text" id="name" name="name" required minLength="4" maxLength="12" size="15" placeholder="Entrez votre adresse mail" style={{paddingLeft: '25px', width: '650px', height: '55px', borderRadius: '50px 0px 0px 50px', display: 'flex', justifyContent: 'flex-end', color: 'black'}}></input>
+                            <Button style={{backgroundColor: "blue", marginBottom: "150px", borderRadius: "0px 30px 30px 0px", height: '55px', color: 'white'}}>Souscrire</Button>
                         </Box>
                     </Box>
                     <Grid templateColumns='repeat(4, 1fr)' style={{display: "flex", justifyContent: 'center', paddingTop: "240px"}}>
