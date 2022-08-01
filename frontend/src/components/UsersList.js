@@ -120,7 +120,7 @@ const UsersList = () => {
             {loading ? <ChatLoading /> : 
             (
               searchResult?.map((user) => (
-                <GridItem>
+                <GridItem key={user._id}>
                   <ProfileModal user={user} key={user._id}>
                     <UserListItem
                       key={user._id}

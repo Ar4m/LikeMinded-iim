@@ -41,12 +41,10 @@ import {
     Flex,
     Button,
     Stack,
-    useColorModeValue,
-    useDisclosure
+    useColorModeValue
   } from '@chakra-ui/react';
   
   export default function LandingPage() {
-    const { isOpen, onToggle } = useDisclosure();
 
     const history = useHistory();
 
@@ -359,7 +357,7 @@ import {
                     </Box>
                     <Grid templateColumns='repeat(4, 1fr)' style={{display: "flex", justifyContent: 'center', paddingTop: "240px"}}>
                         <GridItem>
-                            <img src={logolikeminded3} alt='logo' style={{height: '18px'}}/>
+                            <img src={logolikeminded3} alt='logo' style={{height: '18px', marginBottom: '5px'}}/>
                             <br/>
                             <p>L’application web pour rencontrer<br/> des gens comme vous et<br/> organiser vos sorties.</p>
                         </GridItem>

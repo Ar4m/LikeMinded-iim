@@ -13,15 +13,15 @@ const UserListItem = ({ user, handleFunction }) => {
   const [loadingChat, setLoadingChat] = useState(false);
   const toast = useToast();
 
-    let userHobbies = user.hobbies
+    let userHobbies = user.hobbies.slice(0).reverse()
     let hobbiesList = userHobbies.map((userHobbies) =>
         <Tag
-        key={userHobbies}
-        borderRadius='full'
-        variant='subtle'
-        background="#00B6F1"
-        px="2" py="1"
-        ml="1" mb="1"
+          key={userHobbies}
+          borderRadius='full'
+          variant='subtle'
+          background="#00B6F1"
+          px="2" py="1"
+          ml="1" mb="1"
         >
         <TagLabel>{userHobbies}</TagLabel>
         </Tag>
@@ -98,7 +98,7 @@ const UserListItem = ({ user, handleFunction }) => {
       >
         {hobbiesList}
       </Box>
-      <Button background="#00C926" _hover={{background: "#00BA23"}} height="10%" onClick={() => accessChat(user._id)} mx={4} mb={4}>
+      <Button height="10%" onClick={() => accessChat(user._id)} mx={4} mb={4}>
         <i className="far fa-comment" style={{ paddingRight: "8px" }}></i>
         Start chat
       </Button>

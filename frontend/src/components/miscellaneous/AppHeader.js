@@ -41,26 +41,28 @@ const AppHeader = () => {
         p="5px 10px 5px 10px"
         borderWidth="3px"
       >
-        <Box display={{ base: "none", md: "contents" }} onClick={redirectWelcome} cursor="pointer">
-          <Image ml="15px" height="30px" src={logoDesktop} />
-        </Box>
-        <Box display={{ base: "contents", md: "none" }} onClick={redirectWelcome} cursor="pointer">
-          <Image height="40px" src={logoMobile}/>
+        <Box>
+          <Box display={{ base: "none", md: "contents" }} onClick={redirectWelcome} cursor="pointer">
+            <Image ml="15px" height="30px" src={logoDesktop} />
+          </Box>
+          <Box display={{ base: "contents", md: "none" }} onClick={redirectMeet} cursor="pointer">
+            <Image height="40px" src={logoMobile}/>
+          </Box>
         </Box>
         <Box
-            d="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            minW="25%"
+          d="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          minW="25%"
         >
-            <Button variant="ghost" onClick={redirectChats}>
-                <i className="far fa-comment" style={{ paddingRight: "8px" }}></i>
-                <Text display={{ base: "none", md: "contents" }}>Chats</Text>
-            </Button>
-            <Button variant="ghost" onClick={redirectMeet}>
-                <i className="fas fa-users" style={{ paddingRight: "8px" }}></i>
-                <Text display={{ base: "none", md: "contents" }}>Users</Text>
-            </Button> 
+          <Button variant="ghost" onClick={redirectChats}>
+            <i className="far fa-comment" style={{ paddingRight: "8px" }}></i>
+            <Text display={{ base: "none", md: "contents" }}>Chats</Text>
+          </Button>
+          <Button variant="ghost" onClick={redirectMeet}>
+            <i className="fas fa-users" style={{ paddingRight: "8px" }}></i>
+            <Text display={{ base: "none", md: "contents" }}>Users</Text>
+          </Button> 
         </Box>
         <div>
           <Menu>

@@ -119,7 +119,7 @@ const ProfileModal = ({ user, children }) => {
 
   let userHobbies = ["No hobbies added"]
   if(user.hobbies) { userHobbies = user.hobbies }
-  let hobbiesList = userHobbies.map((userHobbies) =>
+  let hobbiesList = userHobbies.slice(0).reverse().map((userHobbies) =>
     <Tag
       key={userHobbies}
       borderRadius='full'
