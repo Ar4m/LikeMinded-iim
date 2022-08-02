@@ -101,9 +101,9 @@ const UsersList = () => {
 
   return (
     <Box d="flex" justifyContent="center">
-      <Box w={{ base: "95%", md: "80%" }} >
+      <Box w={{ base: "96%", md: "80%" }} >
         <Image src={bandeau} margin="auto"/>
-        <Box maxW="50%" mx="auto" d="flex" justifyContent="center" alignItems="center" h="7vh" pb={2} mt="20px">
+        <Box w={{ base: "75%", md: "40%" }} mx="auto" d="flex" justifyContent="center" alignItems="center" h="7vh" pb={2} mt="20px">
           <Input
            placeholder="Search by name/hobby"
            bg="white"
@@ -112,27 +112,24 @@ const UsersList = () => {
            onChange={(e) => setSearch(e.target.value)}
            onKeyDown={handleKeyPress}
           />
-        
           <Button onClick={handleSearch} background="#00B6F1" color="white"><i className="fas fa-search" style={{ color: "white" }}></i></Button>
         </Box>
-        <Box d="flex" justifyContent="center">
-          <Grid maxW="100%" templateColumns='repeat(4, 1fr)'>
-            {loading ? <ChatLoading /> : 
+        <Box d="flex" flexWrap="wrap" justifyContent="center">
+          {loading ? <ChatLoading /> : 
             (
               searchResult?.map((user) => (
-                <GridItem key={user._id}>
+                <Box key={user._id}>
                   <ProfileModal user={user} key={user._id}>
                     <UserListItem
                       key={user._id}
                       user={user}
                     />
                   </ProfileModal>
-                </GridItem>
+                </Box>
               ))
             )
           }
           {loadingChat && <Spinner ml="auto" d="flex" />}
-          </Grid>
         </Box>
       </Box>
     </Box>

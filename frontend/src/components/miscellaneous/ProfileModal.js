@@ -187,7 +187,7 @@ const ProfileModal = ({ user, children }) => {
             <Text
               fontSize={{ base: "18px", md: "20px" }}
               fontFamily="Work sans"
-              mt="15px"
+              mt="20px"
               d="flex"
             >
               <span style={{marginTop: "2px"}}>Hobbies: </span>
@@ -270,7 +270,7 @@ const ProfileModal = ({ user, children }) => {
           
           <ModalFooter>
             { loggedInUser._id !== user._id ? 
-              <Button onClick={() => accessChat(user._id)}>
+              <Button border="2px solid" borderColor="#00B6F1" color="#00B6F1" backgroundColor="white" onClick={() => accessChat(user._id)}>
                 <i className="far fa-comment" style={{ paddingRight: "8px" }}></i>
                 Start Chat
               </Button> : 

@@ -64,7 +64,8 @@ const UserListItem = ({ user, handleFunction }) => {
       _hover={{
         background: "#EBEBEB"
       }}
-      h="20rem"
+      h="18em"
+      w="16em"
       alignItems="center"
       justifyContent="center"
       color="black"
@@ -73,7 +74,7 @@ const UserListItem = ({ user, handleFunction }) => {
       d="flex"
       flexDirection="column"
     >
-      <Box height="24%" width="100%" position="relative" top="0" display="flex" justifyContent="center">
+      <Box height="29%" width="100%" position="relative" top="0" display="flex" justifyContent="center">
         <Box height="60%" width="100%" background="#00B6F1" borderRadius="8px 8px 0 0" position="relative" top="0"></Box>
         <Avatar
           size="lg"
@@ -88,17 +89,26 @@ const UserListItem = ({ user, handleFunction }) => {
       <Box height="16%"
         d="flex"
         alignItems="center"
-        px={4}
+        px={3}
         >
         <Text>{user.name}</Text>
       </Box>
-      <Box height="50%"
-        overflowY="scroll"
-        px={4}
+      <Box 
+        height="45%"
+        width="100%"
+        d="flex"
+        justifyContent="center"
       >
-        {hobbiesList}
+        <Box 
+          overflowY="scroll"
+          overflowX="hidden"
+          px={3}
+        >
+          {hobbiesList}
+        </Box>
       </Box>
-      <Button height="10%" onClick={() => accessChat(user._id)} mx={4} mb={4}>
+      <Button height="10%" border="2px solid" borderColor="#00B6F1" color="#00B6F1" backgroundColor="white" mx={3} mb={4} mt={2}
+        onClick={() => accessChat(user._id)}>
         <i className="far fa-comment" style={{ paddingRight: "8px" }}></i>
         Start chat
       </Button>
