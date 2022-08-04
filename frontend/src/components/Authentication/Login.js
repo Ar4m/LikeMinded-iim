@@ -5,8 +5,8 @@ import { useHistory } from 'react-router-dom';
 
 const Login = () => {
   const [show, setShow] = useState(false);
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const toast = useToast();
@@ -72,6 +72,46 @@ const Login = () => {
     }
   }
 
+  const guestLogin = async () => {
+    setLoading(true);
+
+    try {
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
+
+      const { data } = await axios.post(
+        "/api/user/login",
+        { email:"guest@example.com", password:"123456" },
+        config
+      );
+
+      // console.log(JSON.stringify(data));
+      toast({
+        title: "Login Successful",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      setLoading(false);
+      history.push("/meet");
+    } catch (error) {
+      toast({
+        title: "Error Occured!",
+        description: error.response.data.message,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      setLoading(false);
+    }
+  };
+
   return (
     <VStack spacing='5px'>
         <FormControl id="email" isRequired>
@@ -119,8 +159,7 @@ const Login = () => {
               width="100%"
               marginLeft="10px"
               onClick={() => {
-                setEmail("guest@example.com");
-                setPassword("123456");
+                guestLogin()
               }}
           >
               Guest User
