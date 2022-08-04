@@ -1,27 +1,24 @@
-import { Box, Button, Container, Grid, GridItem, Image, Input, Spinner, useToast } from '@chakra-ui/react';
+import { Box, Button, Image, Input, Spinner, useToast } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { ChatState } from '../Context/ChatProvider';
 import ChatLoading from './ChatLoading';
 import UserListItem from './UserAvatar/UserListItem';
-import { useHistory } from 'react-router-dom';
 import ProfileModal from './miscellaneous/ProfileModal';
 import bandeau from '../images/bandeau.png';
+import { useHistory } from 'react-router-dom';
 
 const UsersList = () => {
 
-  const { setSelectedChat } = ChatState();
-  const [chats, setChats] = useState([]);
   const user = JSON.parse(localStorage.getItem("userInfo"));
-
-  const history = useHistory();
 
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const [loadingChat, setLoadingChat] = useState(false);
+  let [displayList, setDisplayList] = useState(false);
 
   const toast = useToast();
+  const history = useHistory();
 
   const handleKeyPress = (event) => {
     if(event.key === 'Enter'){
@@ -66,44 +63,15 @@ const UsersList = () => {
     }
   };
 
-  const accessChat = async (userId) => {
-    console.log(userId);
-
-    try {
-      setLoadingChat(true);
-      const config = {
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-      };
-      const { data } = await axios.post(`/api/chat`, { userId }, config);
-
-      if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
-      setSelectedChat(data);
-      setLoadingChat(false);
-      history.push("/chats");
-    } catch (error) {
-      toast({
-        title: "Error fetching the chat",
-        description: error.message,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-        position: "bottom",
-      });
-    }
-  };
-
   useEffect(() => {
     handleSearch();
   }, []);
 
   return (
-    <Box d="flex" justifyContent="center">
-      <Box w={{ base: "96%", md: "80%" }} >
-        <Image src={bandeau} margin="auto"/>
-        <Box w={{ base: "75%", md: "40%" }} mx="auto" d="flex" justifyContent="center" alignItems="center" h="7vh" pb={2} mt="20px">
+    <Box d="flex" justifyContent="center" w="100%">
+      <Box w={{ base: "96%", md: "80%" }}>
+        <Image src={bandeau} margin="auto" cursor="pointer" onClick={() => history.push("/welcome")} />
+        <Box w={{ base: "92%", md: "42%" }} mx="auto" d="flex" justifyContent="center" alignItems="center" h="7vh" pb={2} mt="20px">
           <Input
            placeholder="Search by name/hobby"
            bg="white"
@@ -112,17 +80,27 @@ const UsersList = () => {
            onChange={(e) => setSearch(e.target.value)}
            onKeyDown={handleKeyPress}
           />
-          <Button onClick={handleSearch} background="#00B6F1" color="white"><i className="fas fa-search" style={{ color: "white" }}></i></Button>
+          <Button onClick={handleSearch} background="#00B6F1" color="white" _focus={{outline: 'none'}} _hover={{background:"white", color:"#00B6F1"}}>
+            <i className="fas fa-search"></i>
+          </Button>
+          <Button onClick={() => setDisplayList(!displayList)} background="#00C926" color="white" ml="2em" _focus={{outline: 'none'}} _hover={{background:"white", color:"#00C926"}}>
+            { displayList === false ?
+              <i className="fas fa-list-ul"></i>
+              : 
+              <i className="fas fa-th"></i>
+            }
+          </Button>
         </Box>
-        <Box d="flex" flexWrap="wrap" justifyContent="center">
+        <Box d="flex" flexWrap="wrap" justifyContent="center" paddingBottom="2em" mx="auto" w={{ base: displayList === true && "100%", md: displayList === true && "50%" }}>
           {loading ? <ChatLoading /> : 
             (
               searchResult?.map((user) => (
-                <Box key={user._id}>
+                <Box w={ displayList === true && "100%" } key={user._id}>
                   <ProfileModal user={user} key={user._id}>
                     <UserListItem
                       key={user._id}
                       user={user}
+                      displayList={displayList}
                     />
                   </ProfileModal>
                 </Box>

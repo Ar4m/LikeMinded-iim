@@ -119,7 +119,7 @@ const GroupChatModal = ({ children, fetchAgain, setFetchAgain }) => {
     <>
       <span onClick={onOpen}>{children}</span>
 
-      <Modal onClose={onClose} isOpen={isOpen} isCentered>
+      <Modal size="lg" onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader
@@ -131,7 +131,7 @@ const GroupChatModal = ({ children, fetchAgain, setFetchAgain }) => {
             Create Group Chat
           </ModalHeader>
           <ModalCloseButton />
-          <ModalBody d="flex" flexDir="column" alignItems="center">
+          <ModalBody>
             <FormControl>
               <Input
                 placeholder="Chat Name"
@@ -155,24 +155,26 @@ const GroupChatModal = ({ children, fetchAgain, setFetchAgain }) => {
                 />
               ))}
             </Box>
-            {loading ? (
-              // <ChatLoading />
-              <div>Loading...</div>
-            ) : (
-              searchResult
-                ?.slice(0, 4)
-                .map((user) => (
-                  <UserListItem
-                    key={user._id}
-                    user={user}
-                    handleFunction={() => handleGroup(user)}
-                    bg="blue"
-                  />
-                ))
-            )}
+            <Box maxH="20em" overflow="auto">
+              {loading ? (
+                // <ChatLoading />
+                <div>Loading...</div>
+              ) : (
+                searchResult
+                  ?.slice(0)
+                  .map((user) => (
+                    <UserListItem
+                      key={user._id}
+                      user={user}
+                      handleFunction={() => handleGroup(user)}
+                      displayList={true}
+                    />
+                  ))
+              )}
+            </Box>
           </ModalBody>
           <ModalFooter>
-            <Button onClick={handleSubmit} colorScheme="blue">
+            <Button onClick={handleSubmit} bg="#00B6F1" color="white" _hover={{background:"white", color:"#00B6F1", outlineColor:"#00B6F1"}}>
               Create Chat
             </Button>
           </ModalFooter>

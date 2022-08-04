@@ -190,7 +190,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
     <>
       <IconButton d={{ base: "flex" }} icon={<ViewIcon />} onClick={onOpen} />
 
-      <Modal onClose={onClose} isOpen={isOpen} isCentered>
+      <Modal size="lg" onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader
@@ -203,7 +203,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
           </ModalHeader>
 
           <ModalCloseButton />
-          <ModalBody d="flex" flexDir="column" alignItems="center">
+          <ModalBody>
             <Box w="100%" d="flex" flexWrap="wrap" pb={3}>
               {selectedChat.users.map((u) => (
                 <UserBadgeItem
@@ -238,18 +238,20 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
                 onChange={(e) => handleSearch(e.target.value)}
               />
             </FormControl>
-
-            {loading ? (
-              <Spinner size="lg" />
-            ) : (
-              searchResult?.map((user) => (
-                <UserListItem
-                  key={user._id}
-                  user={user}
-                  handleFunction={() => handleAddUser(user)}
-                />
-              ))
-            )}
+            <Box maxH="20em" overflow="auto">
+              {loading ? (
+                <Spinner size="lg" />
+              ) : (
+                searchResult?.map((user) => (
+                  <UserListItem
+                    key={user._id}
+                    user={user}
+                    handleFunction={() => handleAddUser(user)}
+                    displayList={true}
+                  />
+                ))
+              )}
+            </Box>
           </ModalBody>
           <ModalFooter>
             <Button onClick={() => handleRemove(user)} colorScheme="red">

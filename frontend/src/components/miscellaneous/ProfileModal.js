@@ -153,49 +153,49 @@ const ProfileModal = ({ user, children }) => {
             d="flex"
             flexDir="column"
             justifyContent="space-between"
-          >
-            <Box 
-              d="flex"
-              flexDir="column"
-              alignItems="center"
             >
-              <ModalHeader
-                fontSize="30px"
-                fontFamily="Work sans"
+              <Box 
+                d="flex"
+                flexDir="column"
+                alignItems="center"
               >
-                {user.name}
-              </ModalHeader>
-              <Avatar
-                borderRadius="full"
-                //boxSize="130px"
-                //height='auto'
-                size='2xl'
-                src={user.pic}
-                name={user.name}
-              />
-            </Box>
-            { loggedInUser._id === user._id &&
+                <ModalHeader
+                  fontSize="30px"
+                  fontFamily="Work sans"
+                >
+                  {user.name}
+                </ModalHeader>
+                <Avatar
+                  borderRadius="full"
+                  //boxSize="130px"
+                  //height='auto'
+                  size='2xl'
+                  src={user.pic}
+                  name={user.name}
+                />
+              </Box>
+              { loggedInUser._id === user._id &&
+                <Text
+                  fontSize={{ base: "18px", md: "20px" }}
+                  fontFamily="Work sans"
+                  mt="15px"
+                >
+                  Email: {user.email}
+                </Text>
+              }
+              
               <Text
                 fontSize={{ base: "18px", md: "20px" }}
                 fontFamily="Work sans"
-                mt="15px"
+                mt="20px"
+                d="flex"
               >
-                Email: {user.email}
+                <span style={{marginTop: "2px"}}>Hobbies: </span>
+                <span>{hobbiesList}</span>
               </Text>
-            }
-            
-            <Text
-              fontSize={{ base: "18px", md: "20px" }}
-              fontFamily="Work sans"
-              mt="20px"
-              d="flex"
-            >
-              <span style={{marginTop: "2px"}}>Hobbies: </span>
-              <span>{hobbiesList}</span>
-            </Text>
             </ModalBody>
             : 
-          //----------------------------------------Editable Profile----------------------------------------
+            //----------------------------------------Editable Profile----------------------------------------
             <ModalBody
               d="flex"
               flexDir="column"

@@ -250,7 +250,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 variant="filled"
                 bg="white"
                 borderRadius="50px 0px 0px 50px"
-                placeholder="Enter a message.."
+                placeholder="Enter a message..."
                 value={newMessage}
                 _hover="white"
                 onChange={typingHandler}
