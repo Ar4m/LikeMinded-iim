@@ -7,7 +7,7 @@ import ProfileModal from './ProfileModal';
 import logoDesktop from '../../images/LogoBlue_LikeMinded.png';
 import logoMobile from '../../images/logoMobile.png';
 
-const AppHeader = () => {
+const AppHeader = ({ currentPage }) => {
 
   const { notification, setNotification, setSelectedChat } = ChatState();
   const user = JSON.parse(localStorage.getItem("userInfo"));
@@ -55,13 +55,31 @@ const AppHeader = () => {
           alignItems="center"
           minW="25%"
         >
-          <Button variant="ghost" onClick={redirectChats}>
-            <i className="far fa-comment" style={{ paddingRight: "8px" }}></i>
-            <Text display={{ base: "none", md: "contents" }}>Chats</Text>
+          <Button variant="ghost" onClick={redirectChats} 
+            _hover={{bg:"#00B6F1", color:"white"}} 
+            bg={currentPage==="chats" && "#00B6F1"} 
+            color={currentPage==="chats" && "white"}
+            _focus={{outline: 'none'}}
+          >
+            <i className="far fa-comment"></i>
+            <Box display={{ base: "none", md: "contents" }}>
+              <p style={{ paddingLeft: "8px" }}>
+                Chats
+              </p>
+            </Box>
           </Button>
-          <Button variant="ghost" onClick={redirectMeet}>
-            <i className="fas fa-users" style={{ paddingRight: "8px" }}></i>
-            <Text display={{ base: "none", md: "contents" }}>Users</Text>
+          <Button variant="ghost" onClick={redirectMeet} 
+            _hover={{bg:"#00B6F1", color:"white"}} 
+            bg={currentPage==="meet" && "#00B6F1"} 
+            color={currentPage==="meet" && "white"}
+            _focus={{outline: 'none'}}
+          >
+            <i className="fas fa-users"></i>
+            <Box display={{ base: "none", md: "contents" }}>
+              <p style={{ paddingLeft: "8px" }}>
+                Users
+              </p>
+            </Box>
           </Button> 
         </Box>
         <div>

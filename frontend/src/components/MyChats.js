@@ -96,21 +96,21 @@ const MyChats = ({ fetchAgain, setFetchAgain }) => {
             {chats.map((chat) => (
               <Box mt="0 !important">
                 <Box
-                onClick={() => setSelectedChat(chat)}
-                cursor="pointer"
-                mt="0 !important"
-                borderRadius="8px"
-                bg={selectedChat?._id === chat._id ? "#00B6F1" : "white"}
-                color={selectedChat?._id === chat._id ? "white" : "black"}
-                p={4}
-                key={chat._id}
-              >
-                <Text>
-                  {!chat.isGroupChat
-                    ? getSender(loggedUser, chat.users)
-                    : chat.chatName}
-                </Text>
-                
+                  onClick={() => setSelectedChat(chat)}
+                  cursor="pointer"
+                  mt="0 !important"
+                  borderRadius="8px"
+                  bg={selectedChat?._id === chat._id ? "#00B6F1" : "white"}
+                  color={selectedChat?._id === chat._id ? "white" : "black"}
+                  p={4}
+                  key={chat._id}
+                  _hover={{ background: "#EBEBEB", color: "black" }}
+                >
+                  <Text>
+                    {!chat.isGroupChat
+                      ? getSender(loggedUser, chat.users)
+                      : chat.chatName}
+                  </Text>
                 </Box>
                 <Divider />
               </Box>
