@@ -41,7 +41,7 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 const editUser = asyncHandler(async (req, res) => {
-  const { id, name } = req.body;
+  const { id, name, pic, hobbies, token } = req.body;
 
   if (!name) {
     res.status(400);
@@ -51,7 +51,9 @@ const editUser = asyncHandler(async (req, res) => {
   const user = await User.findByIdAndUpdate(
     id,
     {
-     name: name
+     name: name, 
+     pic: pic,
+     hobbies: hobbies
     },
     {
       new: true,
@@ -61,11 +63,15 @@ const editUser = asyncHandler(async (req, res) => {
   if (user) {
     res.status(201).json({
       _id: user._id,
-      name: user.name
+      name: user.name,
+      email: user.email,
+      pic: user.pic,
+      hobbies: user.hobbies,
+      token: token
     });
   } else {
     res.status(400);
-    throw new Error("Failed to Create the User");
+    throw new Error("Failed to Edit the User");
   }
 });
 

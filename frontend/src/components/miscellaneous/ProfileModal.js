@@ -1,4 +1,4 @@
-import { Avatar, Badge, Box, Button, FormControl, FormLabel, IconButton, Image, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Tag, TagLabel, Text, useDisclosure, useToast } from '@chakra-ui/react';
+import { Avatar, Badge, Box, Button, FormControl, FormLabel, IconButton, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Tag, TagLabel, Text, useDisclosure, useToast } from '@chakra-ui/react';
 import { CloseIcon, ViewIcon } from '@chakra-ui/icons';
 import React, { useState } from 'react'
 import { ChatState } from '../../Context/ChatProvider';
@@ -18,11 +18,11 @@ const ProfileModal = ({ user, children }) => {
   const toast = useToast();
   const [editable, setEditable] = useState(false);
 
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
+  const [name, setName] = useState(user.name);
+  //const [email, setEmail] = useState();
   //const [password, setPassword] = useState();
   //const [confirmpassword, setConfirmpassword] = useState();
-  const [pic, setPic] = useState();
+  const [pic, setPic] = useState(user.pic);
   const [loading, setLoading] = useState(false)
 
   const [result, setResult] = useState([]);
@@ -60,18 +60,63 @@ const ProfileModal = ({ user, children }) => {
   const editButton = async () => {
     setEditable(!editable)
     let currentHobbies = []
-    loggedInUser.hobbies.forEach(hobby => {
+    user.hobbies.forEach(hobby => {
       currentHobbies.push( { value:hobby, label:hobby } )
     });
     setResult(currentHobbies)    
   }
+
+  const postDetails = (pics) => {
+    setLoading(true);
+    if (pics === undefined) {
+      toast({
+        title: "Please Select an Image!",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      return;
+    }
+    console.log(pics);
+    if (pics.type === "image/jpeg" || pics.type === "image/png") {
+      const data = new FormData();
+      data.append("file", pics);
+      data.append("upload_preset", "chat-app");
+      data.append("cloud_name", "likeminded");
+      fetch("https://api.cloudinary.com/v1_1/likeminded/image/upload", {
+        method: "post",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setPic(data.url.toString());
+          console.log(data.url.toString());
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+        });
+    } else {
+      toast({
+        title: "Please Select an Image!",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      setLoading(false);
+      return;
+    }
+  };
 
   const submitEdit = async () => {
     setLoading(true);
     let hobbies = result.map(x => x.value)
     if (!name) {
       toast({
-        title: "Please Fill all the Feilds",
+        title: "Please enter a name",
         status: "warning",
         duration: 5000,
         isClosable: true,
@@ -81,7 +126,7 @@ const ProfileModal = ({ user, children }) => {
       return;
     }
     
-    console.log(name, email);
+    console.log(name, pic, hobbies);
     try {
       const config = {
         headers: {
@@ -90,12 +135,18 @@ const ProfileModal = ({ user, children }) => {
       };
       const { data } = await axios.put(
         "/api/user",
-        { id: loggedInUser._id,name: name },
+        { 
+          id: user._id, 
+          name: name,
+          pic: pic,
+          hobbies: hobbies,
+          token: user.token
+        },
         config
       );
       console.log(data);
       toast({
-        title: "Registration Successful",
+        title: "Edit Successful",
         status: "success",
         duration: 5000,
         isClosable: true,
@@ -103,7 +154,7 @@ const ProfileModal = ({ user, children }) => {
       });
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
-      //history.push("/meet");
+      history.push("/meet");
     } catch (error) {
       toast({
         title: "Error Occured!",
@@ -217,25 +268,24 @@ const ProfileModal = ({ user, children }) => {
                     <Input
                       fontSize="18px"
                       placeholder="Enter Your Name"
-                      defaultValue={loggedInUser.name}
+                      defaultValue={user.name}
                       onChange={(e) => setName(e.target.value)}
                     />
                   </FormControl>
                 </ModalHeader>
                 <Avatar
-                borderRadius="full"
-                size='2xl'
-                src={user.pic}
-                name={user.name}
-              />
+                  borderRadius="full"
+                  size='2xl'
+                  src={pic}
+                  name={user.name}
+                />
+                <Input
+                  type="file"
+                  p={1.5}
+                  accept="image/*"
+                  onChange={(e) => postDetails(e.target.files[0])}
+                />
               </Box>
-              <Text
-                fontSize={{ base: "18px", md: "20px" }}
-                fontFamily="Work sans"
-                mt="15px"
-              >
-                Email: {user.email}
-              </Text>
               <FormControl id="hobbies" py="15px">
                 <FormLabel fontSize="18px">Hobbies and Interests</FormLabel>
                 <Box maxW="lg">
@@ -275,7 +325,9 @@ const ProfileModal = ({ user, children }) => {
                 Start Chat
               </Button> : 
               <Box>
-                { editable === true && <Button bg="red" color="white" onClick={() => submitEdit() }>Save</Button> }
+                { editable === true && <Button bg="red" color="white" colorScheme="red" _focus={{outline: 'none'}} onClick={() => submitEdit() } isLoading={loading}
+                
+                >Save</Button> }
                 <Button ml="2" onClick={() => editButton() }> { editable === false ? "Edit" : "See Profile" }</Button>
               </Box>
             }
