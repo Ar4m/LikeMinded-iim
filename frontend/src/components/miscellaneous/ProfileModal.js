@@ -325,10 +325,8 @@ const ProfileModal = ({ user, children }) => {
                 Start Chat
               </Button> : 
               <Box>
-                { editable === true && <Button bg="red" color="white" colorScheme="red" _focus={{outline: 'none'}} onClick={() => submitEdit() } isLoading={loading}
-                
-                >Save</Button> }
-                <Button ml="2" onClick={() => editButton() }> { editable === false ? "Edit" : "See Profile" }</Button>
+                { editable === true && <Button bg="red" color="white" colorScheme="red" _focus={{outline: 'none'}} onClick={() => submitEdit() } isLoading={loading}>Save</Button> }
+                { user.email !== "guest@example.com" && <Button ml="2" onClick={() => editButton() }> { editable === false ? "Edit" : "See Profile" }</Button> }
               </Box>
             }
           </ModalFooter>
