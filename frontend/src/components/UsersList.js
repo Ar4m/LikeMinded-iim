@@ -5,6 +5,7 @@ import ChatLoading from './ChatLoading';
 import UserListItem from './UserAvatar/UserListItem';
 import ProfileModal from './miscellaneous/ProfileModal';
 import bandeau from '../images/bandeau.png';
+import sortIcon from '../images/sort-icon-white.png'
 import { useHistory } from 'react-router-dom';
 
 const UsersList = () => {
@@ -63,6 +64,10 @@ const UsersList = () => {
     }
   };
 
+  const sortSearch = async () => {
+    setSearchResult(searchResult.slice(0).reverse())
+  }
+
   useEffect(() => {
     handleSearch();
   }, []);
@@ -71,7 +76,7 @@ const UsersList = () => {
     <Box d="flex" justifyContent="center" w="100%">
       <Box w={{ base: "96%", md: "80%" }}>
         <Image src={bandeau} margin="auto" cursor="pointer" onClick={() => history.push("/welcome")} />
-        <Box w={{ base: "92%", md: "42%" }} mx="auto" d="flex" justifyContent="center" alignItems="center" h="7vh" pb={2} mt="20px">
+        <Box w={{ base: "100%", lg: "44%" }} mx="auto" d="flex" justifyContent="center" alignItems="center" pt={2} pb={2} mt="20px">
           <Input
            placeholder="Search by name/hobby"
            bg="white"
@@ -83,7 +88,10 @@ const UsersList = () => {
           <Button onClick={handleSearch} background="#00B6F1" color="white" _focus={{outline: 'none'}} _hover={{background:"white", color:"#00B6F1"}}>
             <i className="fas fa-search"></i>
           </Button>
-          <Button onClick={() => setDisplayList(!displayList)} background="#00C926" color="white" ml="2em" _focus={{outline: 'none'}} _hover={{background:"white", color:"#00C926"}}>
+          <Button onClick={() => sortSearch()} background="#A0AEC0" ml="1.5em" _focus={{outline: 'none'}} _hover={{background:"#CBD5E0", color:"#A0AEC0"}}>
+            <Image src={sortIcon} maxW="none" />
+          </Button>
+          <Button onClick={() => setDisplayList(!displayList)} background="#00C926" color="white" ml="4px" _focus={{outline: 'none'}} _hover={{background:"white", color:"#00C926"}}>
             { displayList === false ?
               <i className="fas fa-list-ul"></i>
               : 
