@@ -46,7 +46,9 @@ const ScrollableChat = ({ messages }) => {
                 maxWidth: "75%",
               }}
             >
-              {m.content}
+              <Tooltip label={m.createdAt} placement="bottom-start">
+                {m.content}
+              </Tooltip>
             </span>
           </div>
         ))}
