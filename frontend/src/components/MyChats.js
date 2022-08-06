@@ -29,7 +29,7 @@ const MyChats = ({ fetchAgain, setFetchAgain }) => {
       };
 
       const { data } = await axios.get("/api/chat", config);
-      console.log(data)
+      //console.log(data)
       setChats(data);
     } catch (error) {
       toast({
@@ -94,7 +94,7 @@ const MyChats = ({ fetchAgain, setFetchAgain }) => {
           <Stack overflowY="scroll">
             <Divider />
             {chats.map((chat) => (
-              <Box mt="0 !important">
+              <Box mt="0 !important" key={chat._id}>
                 <Box
                   onClick={() => setSelectedChat(chat)}
                   cursor="pointer"
@@ -104,7 +104,7 @@ const MyChats = ({ fetchAgain, setFetchAgain }) => {
                   color={selectedChat?._id === chat._id ? "white" : "black"}
                   p={4}
                   key={chat._id}
-                  _hover={{ background: "#EBEBEB", color: "black" }}
+                  _hover={{ bg: "#EBEBEB", color: "black" }}
                 >
                   <Text>
                     {!chat.isGroupChat

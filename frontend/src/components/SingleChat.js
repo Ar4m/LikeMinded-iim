@@ -9,6 +9,8 @@ import UpdateGroupChatModal from './miscellaneous/UpdateGroupChatModal';
 import ScrollableChat from './ScrollableChat';
 import './styles.css'
 import io from 'socket.io-client';
+import Lottie from 'react-lottie';
+import animationData from "../animations/typing.json";
 
 const ENDPOINT = "http://localhost:5000";
 //const ENDPOINT = "https://likeminded-alpha.herokuapp.com/";
@@ -20,7 +22,18 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [newMessage, setNewMessage] = useState("");
-  const [socketConnected, setSocketConnected] = useState(false)
+  const [socketConnected, setSocketConnected] = useState(false);
+  const [typing, setTyping] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   const toast = useToast();
   const user = JSON.parse(localStorage.getItem("userInfo"));
@@ -61,7 +74,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   useEffect(() => {
     socket = io(ENDPOINT);
     socket.emit("setup", user);
-    socket.on('connection', () => setSocketConnected(true));
+    socket.on('connected', () => setSocketConnected(true));
+    socket.on("typing", () => setIsTyping(true));
+    socket.on("stop typing", () => setIsTyping(false));
   }, [])
 
   useEffect(() => {
@@ -85,7 +100,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
   const sendMessage = async (event) => {
     if (event.key === "Enter" && newMessage) {
-      //socket.emit("stop typing", selectedChat._id);
+      socket.emit("stop typing", selectedChat._id);
       try {
         const config = {
           headers: {
@@ -119,7 +134,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
   const sendMessageOnClick = async () => {
     if (newMessage) {
-      //socket.emit("stop typing", selectedChat._id);
+      socket.emit("stop typing", selectedChat._id);
       try {
         const config = {
           headers: {
@@ -153,7 +168,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
   const typingHandler = (e) => {
     setNewMessage(e.target.value);
-/*
+
     if (!socketConnected) return;
 
     if (!typing) {
@@ -169,7 +184,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         socket.emit("stop typing", selectedChat._id);
         setTyping(false);
       }
-    }, timerLength);*/
+    }, timerLength);
   };
   
   return (
@@ -236,16 +251,26 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               </div>
             )}
 
+            { isTyping ? (
+              <Box>
+                <Lottie
+                  options={defaultOptions}
+                  width={50}
+                  style={{ marginLeft: 6, marginTop: 5, marginBottom: 0 }}
+                />
+              </Box>
+            ) : (
+              <></>
+            )}
+
             <FormControl
               d="flex"
               flexDir="row"
               onKeyDown={sendMessage}
-              id="first-name"
+              id="send-message"
               isRequired
               mt={3}
             >
-              
-              
               <Input
                 variant="filled"
                 bg="white"

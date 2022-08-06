@@ -1,5 +1,5 @@
 import { BellIcon, ChevronDownIcon } from '@chakra-ui/icons';
-import { Avatar, Box, Button, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Text, Image } from '@chakra-ui/react';
+import { Avatar, Box, Button, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Image } from '@chakra-ui/react';
 import { useHistory } from 'react-router-dom';
 import { getSender } from '../../config/ChatLogics';
 import { ChatState } from '../../Context/ChatProvider';
@@ -25,10 +25,6 @@ const AppHeader = ({ currentPage }) => {
 
   const redirectMeet = () => {
     history.push("/meet");
-  };
-
-  const redirectWelcome = () => {
-    history.push("/welcome");
   };
 
   return (
