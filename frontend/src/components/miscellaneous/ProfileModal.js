@@ -18,11 +18,11 @@ const ProfileModal = ({ user, children }) => {
   const toast = useToast();
   const [editable, setEditable] = useState(false);
 
-  const [name, setName] = useState(user.name);
+  const [name, setName] = useState(user?.name);
   //const [email, setEmail] = useState();
   //const [password, setPassword] = useState();
   //const [confirmpassword, setConfirmpassword] = useState();
-  const [pic, setPic] = useState(user.pic);
+  const [pic, setPic] = useState(user?.pic);
   const [loading, setLoading] = useState(false)
 
   const [result, setResult] = useState([]);
@@ -169,7 +169,7 @@ const ProfileModal = ({ user, children }) => {
   };
 
   let userHobbies = ["No hobbies added"]
-  if(user.hobbies) { userHobbies = user.hobbies }
+  if(user?.hobbies) { userHobbies = user.hobbies }
   let hobbiesList = userHobbies.slice(0).reverse().map((userHobbies) =>
     <Tag
       key={userHobbies}
@@ -191,7 +191,7 @@ const ProfileModal = ({ user, children }) => {
       {children ? (
         <span onClick={onOpen}>{children}</span>
       ) : (
-        <IconButton borderRadius="50px" d={{ base: "flex" }} icon={<ViewIcon/>} onClick={onOpen} />
+        <IconButton d={{ base: "flex" }} borderRadius="50px" icon={<ViewIcon/>} onClick={onOpen} /> //<i className="fas fa-info"></i>
       )}
       <Modal size="lg" onClose={onClose} isOpen={isOpen}>
         <ModalOverlay />
@@ -214,24 +214,24 @@ const ProfileModal = ({ user, children }) => {
                   fontSize="30px"
                   fontFamily="Work sans"
                 >
-                  {user.name}
+                  {user?.name}
                 </ModalHeader>
                 <Avatar
                   borderRadius="full"
                   //boxSize="130px"
                   //height='auto'
                   size='2xl'
-                  src={user.pic}
-                  name={user.name}
+                  src={user?.pic}
+                  name={user?.name}
                 />
               </Box>
-              { loggedInUser._id === user._id &&
+              { loggedInUser._id === user?._id &&
                 <Text
                   fontSize={{ base: "18px", md: "20px" }}
                   fontFamily="Work sans"
                   mt="15px"
                 >
-                  Email: {user.email}
+                  Email: {user?.email}
                 </Text>
               }
               
@@ -319,7 +319,7 @@ const ProfileModal = ({ user, children }) => {
           }
           
           <ModalFooter>
-            { loggedInUser._id !== user._id ? 
+            { loggedInUser._id !== user?._id ? 
               <Button border="2px solid" borderColor="#00B6F1" color="#00B6F1" backgroundColor="white" onClick={() => accessChat(user._id)}>
                 <i className="far fa-comment" style={{ paddingRight: "8px" }}></i>
                 Start Chat

@@ -99,7 +99,7 @@ const UsersList = () => {
             }
           </Button>
         </Box>
-        <Box d="flex" flexWrap="wrap" justifyContent="center" paddingBottom="2em" mx="auto" w={{ base: displayList === true && "100%", md: displayList === true && "50%" }}>
+        <Box d="flex" flexWrap="wrap" justifyContent="center" paddingBottom="5em" mx="auto" w={{ base: displayList === true && "100%", md: displayList === true && "50%" }}>
           {loading ? <ChatLoading /> : 
             (
               searchResult?.map((user) => (

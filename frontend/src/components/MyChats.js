@@ -16,7 +16,12 @@ const MyChats = ({ fetchAgain, setFetchAgain }) => {
   const toast = useToast();
 
   const getSender = (loggedUser, users) => {
-    return users[0]._id === loggedUser._id ? users[1].name : users[0].name;
+    try {
+      return users[0]._id === loggedUser._id ? users[1].name : users[0].name;
+    }
+    catch (error) {
+      return "User_not_found"
+    }
   };
 
   const fetchChats = async () => {

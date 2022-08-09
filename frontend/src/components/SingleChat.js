@@ -12,8 +12,8 @@ import io from 'socket.io-client';
 import Lottie from 'react-lottie';
 import animationData from "../animations/typing.json";
 
-//const ENDPOINT = "http://localhost:5000";
-const ENDPOINT = "https://likeminded-alpha.herokuapp.com/";
+const ENDPOINT = "http://localhost:5000";
+//const ENDPOINT = "https://likeminded-alpha.herokuapp.com/";
 
 var socket, selectedChatCompare;
 
@@ -280,7 +280,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 _hover="white"
                 onChange={typingHandler}
               />
-              <Button onClick={() => sendMessageOnClick()} width="50px" background="#00B6F1" color="white" borderRadius="0px 50px 50px 0px"><i className="fas fa-paper-plane"></i></Button>
+              <Button onClick={() => sendMessageOnClick()} width="50px" background="#00B6F1" color="white" borderRadius="0px 50px 50px 0px" _hover={{ background: '#00B6F1', boxShadow:"none" }} _focus={{ background: '#00B6F1', boxShadow:"none" }}>
+                <i className="fas fa-paper-plane"></i>
+              </Button>
 
             </FormControl>
           </Box>
