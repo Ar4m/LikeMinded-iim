@@ -110,6 +110,7 @@ const MyChats = ({ fetchAgain, setFetchAgain }) => {
                   p={4}
                   key={chat._id}
                   _hover={{ bg: "#EBEBEB", color: "black" }}
+                  maxHeight="6em"
                 >
                   <Text>
                     {!chat.isGroupChat

@@ -1,5 +1,5 @@
 import { Avatar, Badge, Box, Button, FormControl, FormLabel, IconButton, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Tag, TagLabel, Text, useDisclosure, useToast } from '@chakra-ui/react';
-import { CloseIcon, ViewIcon } from '@chakra-ui/icons';
+import { CloseIcon } from '@chakra-ui/icons';
 import React, { useState } from 'react'
 import { ChatState } from '../../Context/ChatProvider';
 import { useHistory } from 'react-router-dom';
@@ -191,7 +191,7 @@ const ProfileModal = ({ user, children }) => {
       {children ? (
         <span onClick={onOpen}>{children}</span>
       ) : (
-        <IconButton d={{ base: "flex" }} borderRadius="50px" icon={<ViewIcon/>} onClick={onOpen} /> //<i className="fas fa-info"></i>
+        <IconButton d={{ base: "flex" }} borderRadius="50px" icon={<i className="fas fa-user"></i>} onClick={onOpen} /> //<i className="fas fa-info"></i>
       )}
       <Modal size="lg" onClose={onClose} isOpen={isOpen}>
         <ModalOverlay />
@@ -213,6 +213,9 @@ const ProfileModal = ({ user, children }) => {
                 <ModalHeader
                   fontSize="30px"
                   fontFamily="Work sans"
+                  maxWidth="100%"
+                  maxHeight="6em"
+                  overflow="auto"
                 >
                   {user?.name}
                 </ModalHeader>

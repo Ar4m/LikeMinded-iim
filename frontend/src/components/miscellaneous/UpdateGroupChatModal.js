@@ -1,5 +1,5 @@
-import { ViewIcon } from '@chakra-ui/icons';
-import { Box, Button, FormControl, IconButton, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spinner, useDisclosure, useToast } from '@chakra-ui/react';
+import { SettingsIcon } from '@chakra-ui/icons';
+import { Badge, Box, Button, FormControl, IconButton, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spinner, useDisclosure, useToast } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useState } from 'react'
 import { ChatState } from '../../Context/ChatProvider';
@@ -141,7 +141,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
   };
 
   const handleRemove = async (user1) => {
-    if (selectedChat.groupAdmin._id !== user._id && user1._id !== user._id) {
+    if (selectedChat.groupAdmin?._id !== user._id && user1._id !== user._id) {
       toast({
         title: "Only admins can remove someone!",
         status: "error",
@@ -188,21 +188,25 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
 
   return (
     <>
-      <IconButton d={{ base: "flex" }} borderRadius="50px" icon={<ViewIcon />} onClick={onOpen} />
+      <IconButton d={{ base: "flex" }} borderRadius="50px" icon={<SettingsIcon />} onClick={onOpen} />
 
       <Modal size="lg" onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent w="100%" maxH="85%" overflow="auto">
           <ModalHeader
             fontSize="35px"
             fontFamily="Work sans"
-            d="flex"
-            justifyContent="center"
+            m="auto"
+            maxWidth="100%"
+            maxHeight="6em"
+            overflow="auto"
           >
             {selectedChat.chatName}
           </ModalHeader>
 
           <ModalCloseButton />
+          { selectedChat.groupAdmin?._id === user._id ? 
+          /*-----------------------------------------Admin display-----------------------------------------*/
           <ModalBody>
             <Box w="100%" d="flex" flexWrap="wrap" pb={3}>
               {selectedChat.users.map((u) => (
@@ -253,6 +257,30 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
               )}
             </Box>
           </ModalBody>
+          /*-----------------------------------------Non-Admin display-----------------------------------------*/
+          :
+          <ModalBody>
+            <Box w="100%" maxH="20em" overflow="auto" d="flex" flexWrap="wrap" pb={3}>
+              {selectedChat.users.map((u) => (
+                <Badge
+                  px={2}
+                  py={1}
+                  borderRadius="lg"
+                  m={1}
+                  mb={2}
+                  variant="solid"
+                  fontSize={12}
+                  colorScheme="purple"
+                  cursor="pointer"
+                  key={u._id}
+                >
+                  {u.name}
+                </Badge>
+              ))}
+            </Box>
+          </ModalBody>
+          }
+
           <ModalFooter>
             <Button onClick={() => handleRemove(user)} colorScheme="red">
               Leave Group

@@ -76,7 +76,7 @@ const UsersList = () => {
     <Box d="flex" justifyContent="center" w="100%">
       <Box w={{ base: "96%", md: "80%" }}>
         <Image src={bandeau} margin="auto" cursor="pointer" onClick={() => history.push("/welcome")} />
-        <Box w={{ base: "100%", lg: "44%" }} mx="auto" d="flex" justifyContent="center" alignItems="center" pt={2} pb={2} mt="20px">
+        <Box w={{ base: "100%", lg: "44%" }} mx="auto" d="flex" justifyContent="center" alignItems="center" pt={2} pb={2} mt="20px" mb="8px">
           <Input
            placeholder="Search by name/hobby"
            bg="white"

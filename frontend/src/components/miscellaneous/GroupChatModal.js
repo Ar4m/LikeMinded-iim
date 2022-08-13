@@ -1,6 +1,7 @@
-import { Box, Button, FormControl, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useToast } from '@chakra-ui/react';
+import { Box, Button, Checkbox, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useToast } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 //import { ChatState } from '../../Context/ChatProvider';
 import UserBadgeItem from '../UserAvatar/UserBadgeItem';
 import UserListItem from "../UserAvatar/UserListItem";
@@ -8,6 +9,7 @@ import UserListItem from "../UserAvatar/UserListItem";
 const GroupChatModal = ({ children, fetchAgain, setFetchAgain }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [groupChatName, setGroupChatName] = useState();
+  const [isPublic, setIsPublic] = useState(false);
   const [selectedUsers, setSelectedUsers] = useState([]);
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
@@ -18,6 +20,7 @@ const GroupChatModal = ({ children, fetchAgain, setFetchAgain }) => {
   //const { user, chats, setChats } = ChatState();
   const user = JSON.parse(localStorage.getItem("userInfo"));
   const [chats, setChats] = useState([]);
+  const history = useHistory();
 
   const handleSearch = async (query) => {
     setSearch(query);
@@ -68,9 +71,9 @@ const GroupChatModal = ({ children, fetchAgain, setFetchAgain }) => {
   };
 
   const handleSubmit = async () => {
-    if (!groupChatName || !selectedUsers) {
+    if (!groupChatName) {
       toast({
-        title: "Please fill all the feilds",
+        title: "Please enter a name for the Group",
         status: "warning",
         duration: 5000,
         isClosable: true,
@@ -89,6 +92,7 @@ const GroupChatModal = ({ children, fetchAgain, setFetchAgain }) => {
         `/api/chat/group`,
         {
           name: groupChatName,
+          isPublic: isPublic,
           users: JSON.stringify(selectedUsers.map((u) => u._id)),
         },
         config
@@ -103,6 +107,7 @@ const GroupChatModal = ({ children, fetchAgain, setFetchAgain }) => {
         isClosable: true,
         position: "bottom",
       });
+      history.push("/chats");
     } catch (error) {
       toast({
         title: "Failed to Create the Chat!",
@@ -132,6 +137,13 @@ const GroupChatModal = ({ children, fetchAgain, setFetchAgain }) => {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
+            <FormControl d="flex" mb="15px">
+              <FormLabel my="auto">Public Group</FormLabel>
+              <Checkbox 
+                value={isPublic}
+                onChange={() => setIsPublic(!isPublic)}
+              />
+            </FormControl>
             <FormControl>
               <Input
                 placeholder="Chat Name"

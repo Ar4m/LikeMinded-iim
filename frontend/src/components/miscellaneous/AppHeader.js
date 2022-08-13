@@ -27,6 +27,10 @@ const AppHeader = ({ currentPage }) => {
     history.push("/meet");
   };
 
+  const redirectGroups = () => {
+    history.push("/groups");
+  };
+
   return (
     <Box
         d="flex"
@@ -41,7 +45,7 @@ const AppHeader = ({ currentPage }) => {
           <Box display={{ base: "none", md: "contents" }} onClick={redirectMeet} cursor="pointer">
             <Image ml="15px" height="30px" src={logoDesktop} />
           </Box>
-          <Box display={{ base: "contents", md: "none" }} onClick={redirectMeet} cursor="pointer">
+          <Box display={{ base: "none", md: "none" }} onClick={redirectMeet} cursor="pointer">
             <Image height="40px" src={logoMobile}/>
           </Box>
         </Box>
@@ -49,7 +53,7 @@ const AppHeader = ({ currentPage }) => {
           d="flex"
           justifyContent="space-between"
           alignItems="center"
-          minW="25%"
+          minW={{ base: "52%", lg: "40%" }}
         >
           <Button variant="ghost" onClick={redirectChats} 
             _hover={{bg:"#00B6F1", color:"white"}} 
@@ -64,13 +68,26 @@ const AppHeader = ({ currentPage }) => {
               </p>
             </Box>
           </Button>
+          <Button variant="ghost" onClick={redirectGroups} 
+            _hover={{bg:"#00B6F1", color:"white"}} 
+            bg={currentPage==="groups" && "#00B6F1"} 
+            color={currentPage==="groups" && "white"}
+            _focus={{outline: 'none'}}
+          >
+            <i className="fas fa-users"></i>
+            <Box display={{ base: "none", md: "contents" }}>
+              <p style={{ paddingLeft: "8px" }}>
+                Groups
+              </p>
+            </Box>
+          </Button>
           <Button variant="ghost" onClick={redirectMeet} 
             _hover={{bg:"#00B6F1", color:"white"}} 
             bg={currentPage==="meet" && "#00B6F1"} 
             color={currentPage==="meet" && "white"}
             _focus={{outline: 'none'}}
           >
-            <i className="fas fa-users"></i>
+            <i className="fas fa-address-card"></i> {/* fas fa-user-friends */}
             <Box display={{ base: "none", md: "contents" }}>
               <p style={{ paddingLeft: "8px" }}>
                 Users

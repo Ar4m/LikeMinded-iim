@@ -69,17 +69,17 @@ const fetchChats = asyncHandler(async (req, res) => {
 });
 
 const createGroupChat = asyncHandler(async (req, res) => {
-  if (!req.body.users || !req.body.name) {
-    return res.status(400).send({ message: "Please Fill all the feilds" });
+  if (!req.body.name) {
+    return res.status(400).send({ message: "Please enter a name for the Group" });
   }
 
   var users = JSON.parse(req.body.users);
 
-  if (users.length < 2) {
+  /*if (users.length < 2) {
     return res
       .status(400)
       .send("More than 2 users are required to form a group chat");
-  }
+  }*/
 
   users.push(req.user);
 
@@ -88,6 +88,7 @@ const createGroupChat = asyncHandler(async (req, res) => {
       chatName: req.body.name,
       users: users,
       isGroupChat: true,
+      isPublic: req.body.isPublic,
       groupAdmin: req.user,
     });
 
@@ -100,6 +101,18 @@ const createGroupChat = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error(error.message);
   }
+});
+
+const fetchPublicGroups = asyncHandler(async (req, res) => {
+  const keyword = req.query.search
+    ? {
+        chatName: { $regex: req.query.search, $options: "i" }
+      }
+    : {};
+
+  const groups = await Chat.find(keyword).find({ isPublic: true })
+    .populate("users", "-password")
+  res.send(groups);
 });
 
 const renameGroup = asyncHandler(async (req, res) => {
@@ -146,6 +159,7 @@ const addToGroup = asyncHandler(async (req, res) => {
   } else {
     res.json(added);
   }
+  
 });
 
 const removeFromGroup = asyncHandler(async (req, res) => {
@@ -171,4 +185,4 @@ const removeFromGroup = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { accessChat, fetchChats, createGroupChat, renameGroup, addToGroup, removeFromGroup };
+module.exports = { accessChat, fetchChats, createGroupChat, fetchPublicGroups, renameGroup, addToGroup, removeFromGroup };

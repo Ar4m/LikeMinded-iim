@@ -89,11 +89,12 @@ const UserListItem = ({ user, handleFunction, displayList }) => {
             />
           </Box>
           <Box height="16%"
+            maxWidth="100%"
             d="flex"
             alignItems="center"
             px={3}
           >
-            <Text>{user.name}</Text>
+            <Text fontWeight="semibold" maxWidth="100%" maxHeight="100%" overflow="auto">{user.name}</Text>
           </Box>
           <Box 
             height="45%"
@@ -142,8 +143,10 @@ const UserListItem = ({ user, handleFunction, displayList }) => {
           <Box 
             width="25%"
             p={1}
+            maxHeight="100%"
+            overflow="auto"
           >
-            <Text>{user.name}</Text>
+            <Text fontWeight="semibold" maxHeight="100%">{user.name}</Text>
           </Box>
           <Box 
             width="60%"

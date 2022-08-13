@@ -191,7 +191,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     <>
       {selectedChat ? (
         <>
-          <Text
+          <Box
             fontSize={{ base: "28px", md: "30px" }}
             pb={3}
             px={2}
@@ -210,14 +210,18 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             {/*messages &&*/
               (!selectedChat.isGroupChat ? (
                 <>
-                  {getSender(user, selectedChat.users)}
+                  <Text maxWidth="80%" maxHeight="2.5em" overflow="auto">
+                    {getSender(user, selectedChat.users)}
+                  </Text>
                   <ProfileModal
                     user={getSenderFull(user, selectedChat.users)}
                   />
                 </>
               ) : (
                 <>
-                  {selectedChat.chatName.toUpperCase()}
+                  <Text maxWidth="80%" maxHeight="2.5em" overflow="auto">
+                    {selectedChat.chatName.toUpperCase()}
+                  </Text>
                   <UpdateGroupChatModal
                     fetchAgain={fetchAgain}
                     setFetchAgain={setFetchAgain}
@@ -225,7 +229,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                   />
                 </>
               ))}
-          </Text>
+          </Box>
           <Box
             d="flex"
             flexDir="column"

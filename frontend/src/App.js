@@ -3,6 +3,7 @@ import './App.css';
 import ChatPage from './Pages/ChatPage';
 import HomePage from './Pages/HomePage';
 import MeetPage from './Pages/MeetPage';
+import GroupsPage from './Pages/GroupsPage';
 import LandingPage from './Pages/LandingPage';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Route path='/' component={HomePage} exact />
       <Route path='/chats' component={ChatPage}/>
       <Route path='/meet' component={MeetPage}/>
+      <Route path='/groups' component={GroupsPage}/>
       <Route path='/welcome' component={LandingPage}/>
     </div>
   );
