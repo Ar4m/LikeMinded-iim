@@ -1,21 +1,20 @@
-import { Skeleton, Stack } from '@chakra-ui/react'
+import { Box, Skeleton } from '@chakra-ui/react'
 import React from 'react'
 
 const ChatLoading = () => {
   return (
-    <Stack>
-        <Skeleton height="65px" />
-        <Skeleton height="65px" />
-        <Skeleton height="65px" />
-        <Skeleton height="65px" />
-        <Skeleton height="65px" />
-        <Skeleton height="65px" />
-        <Skeleton height="65px" />
-        <Skeleton height="65px" />
-        <Skeleton height="65px" />
-        <Skeleton height="65px" />
-        <Skeleton height="65px" />
-    </Stack>
+    <Box d="flex" flexWrap="wrap" justifyContent="center">
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+    </Box>
   )
 }
 

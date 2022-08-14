@@ -95,14 +95,14 @@ const AppHeader = ({ currentPage }) => {
             </Box>
           </Button> 
         </Box>
-        <div>
+        <Box>
           <Menu>
             <MenuButton p={1}>
               {notification.length>0 && <span style={{ backgroundColor: "red", color:"white", padding: "1px 6px", borderRadius: "50%", fontWeight: "bold" }}>{notification.length}</span>}
               <BellIcon fontSize="2xl" m={1} />
             </MenuButton>
 
-            <MenuList pl={2}>
+            <MenuList pl={2} maxH="30em" overflow="auto">
                 {!notification.length && "No New Messages"}
                 {notification.map((notif) => (
                   <MenuItem
@@ -138,7 +138,7 @@ const AppHeader = ({ currentPage }) => {
                 <MenuItem onClick={logoutHandler}>Logout</MenuItem>
             </MenuList>
           </Menu>
-        </div>
+        </Box>
       </Box>
   )
 }

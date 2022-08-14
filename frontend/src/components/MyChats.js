@@ -1,5 +1,5 @@
 import { Box, Button, Divider, Stack, Text, useToast } from '@chakra-ui/react';
-import { AddIcon } from "@chakra-ui/icons";
+import { AddIcon, LockIcon } from "@chakra-ui/icons";
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 //import { getSender } from '../config/ChatLogics';
@@ -112,11 +112,11 @@ const MyChats = ({ fetchAgain, setFetchAgain }) => {
                   _hover={{ bg: "#EBEBEB", color: "black" }}
                   maxHeight="6em"
                 >
-                  <Text>
-                    {!chat.isGroupChat
-                      ? getSender(loggedUser, chat.users)
-                      : "GROUP : " + chat.chatName}
-                  </Text>
+                  {
+                    (!chat.isGroupChat) ?
+                      getSender(loggedUser, chat.users) : 
+                      <Box>{ (chat.isPublic) ? <Text>GROUP : {chat.chatName}</Text> : <Text d="flex" alignItems="center">GROUP {<LockIcon mx="4px"/>} : {chat.chatName}</Text> }</Box>
+                  }
                 </Box>
                 <Divider />
               </Box>

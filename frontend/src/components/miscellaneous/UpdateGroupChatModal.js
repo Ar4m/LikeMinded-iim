@@ -271,7 +271,6 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
                   variant="solid"
                   fontSize={12}
                   colorScheme="purple"
-                  cursor="pointer"
                   key={u._id}
                 >
                   {u.name}
