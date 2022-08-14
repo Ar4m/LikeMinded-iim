@@ -42,8 +42,11 @@ const GroupsList = ({ fetchAgain, setFetchAgain }) => {
 
       const { data } = await axios.get(`/api/chat/groups?search=${search}`, config);
 
+      const sortByUsers = data.sort(function(a, b) {
+        return b.users.length - a.users.length
+      })
       setLoading(false);
-      setSearchResult(data);
+      setSearchResult(sortByUsers);
     } catch (error) {
       toast({
         title: "Error Occured!",
@@ -58,7 +61,6 @@ const GroupsList = ({ fetchAgain, setFetchAgain }) => {
 
   const sortSearch = async () => {
     setSearchResult(searchResult.slice(0).reverse())
-    //console.log(searchResult)
   }
 
   useEffect(() => {
@@ -67,13 +69,13 @@ const GroupsList = ({ fetchAgain, setFetchAgain }) => {
 
   const handleJoinGroup = async (chat1) => {
     if (chat1.users.find((u) => u._id === loggedInUser._id)) {
-      toast({
+      /*toast({
         title: "Already in group!",
         status: "info",
         duration: 5000,
         isClosable: true,
         position: "bottom",
-      });
+      });*/
       setSelectedChat(chat1);
       history.push("/chats");
       return;
@@ -165,7 +167,14 @@ const GroupsList = ({ fetchAgain, setFetchAgain }) => {
                     d="flex"
                     flexDirection="column"
                 >
-                    <Box height="16%" width="100%" background="#00B6F1" borderRadius="8px 8px 0 0"></Box>
+                  {
+                    (group.users.find((u) => u._id === loggedInUser._id)) ? 
+                    <Box height="16%" width="100%" background="#00C926" borderRadius="8px 8px 0 0" d="flex" justifyContent="center" alignItems="center">
+                      <Text color="white">Group Joined !</Text>
+                    </Box>
+                    :
+                    <Box height="16%" width="100%" background="#00B6F1" borderRadius="8px 8px 0 0" d="flex" justifyContent="center" alignItems="center"></Box>
+                  }
                     <Box height="25%"
                         maxWidth="100%"
                         d="flex"
@@ -186,12 +195,21 @@ const GroupsList = ({ fetchAgain, setFetchAgain }) => {
                             ))}
                         </AvatarGroup>
                     </Box>
-                    <Button height="14%" border="2px solid" borderColor="#00B6F1" color="#00B6F1" backgroundColor="white" mx={3} mb={5} mt={2}
+                    {
+                      (group.users.find((u) => u._id === loggedInUser._id)) ? 
+                      <Button height="14%" border="2px solid" borderColor="#00C926" color="#00C926" backgroundColor="white" mx={3} mb={5} mt={2}
                         onClick={() => handleJoinGroup(group)}>
                         <i className="far fa-comment" style={{ paddingRight: "8px" }}></i>
-                        Join Group
-                    </Button>
-                    </Box>
+                        <Text>Open Group</Text>
+                      </Button>
+                      :
+                      <Button height="14%" border="2px solid" borderColor="#00B6F1" color="#00B6F1" backgroundColor="white" mx={3} mb={5} mt={2}
+                        onClick={() => handleJoinGroup(group)}>
+                        <i className="far fa-comment" style={{ paddingRight: "8px" }}></i>
+                        <Text>Join Group</Text>
+                      </Button>
+                    }
+                </Box>
               ))
             )
           }

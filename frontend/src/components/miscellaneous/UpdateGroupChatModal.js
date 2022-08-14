@@ -205,7 +205,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
           </ModalHeader>
 
           <ModalCloseButton />
-          { selectedChat.groupAdmin?._id === user._id ? 
+          { selectedChat.groupAdmin?._id === user?._id ? 
           /*-----------------------------------------Admin display-----------------------------------------*/
           <ModalBody>
             <Box w="100%" d="flex" flexWrap="wrap" pb={3}>
