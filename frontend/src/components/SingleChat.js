@@ -12,8 +12,8 @@ import io from 'socket.io-client';
 import Lottie from 'react-lottie';
 import animationData from "../animations/typing.json";
 
-const ENDPOINT = "http://localhost:5000";
-//const ENDPOINT = "https://likeminded-alpha.herokuapp.com/";
+//const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://likeminded-beta.herokuapp.com/";
 
 var socket, selectedChatCompare;
 
