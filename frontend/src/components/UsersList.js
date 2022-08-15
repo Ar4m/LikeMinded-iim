@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import ChatLoading from './ChatLoading';
 import UserListItem from './UserAvatar/UserListItem';
 import ProfileModal from './miscellaneous/ProfileModal';
-import bandeau from '../images/bandeau.png';
+import bandeau from '../images/bandeau2.png';
 import sortIcon from '../images/sort-icon-white.png'
 import { useHistory } from 'react-router-dom';
 
@@ -75,7 +75,7 @@ const UsersList = () => {
   return (
     <Box d="flex" justifyContent="center" w="100%">
       <Box w={{ base: "96%", md: "80%" }}>
-        <Image src={bandeau} margin="auto" cursor="pointer" onClick={() => history.push("/welcome")} />
+        <Image src={bandeau} maxH="148px" margin="auto" cursor="pointer" onClick={() => history.push("/welcome")} />
         <Box w={{ base: "100%", lg: "44%" }} mx="auto" d="flex" justifyContent="center" alignItems="center" pt={2} pb={2} mt="20px" mb="8px">
           <Input
            placeholder="Search by name/hobby"
@@ -103,7 +103,7 @@ const UsersList = () => {
           {loading ? <ChatLoading /> : 
             (
               searchResult?.map((user) => (
-                <Box w={ displayList === true && "100%" } key={user._id}>
+                <Box w={ displayList === true && "100%" } display={ (user.email === "guest@example.com") && "none"} key={user._id}>
                   <ProfileModal user={user} key={user._id}>
                     <UserListItem
                       key={user._id}
