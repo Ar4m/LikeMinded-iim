@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.0b14ff0c.css",
-    "main.js": "/static/js/main.a2081ffe.js",
+    "main.js": "/static/js/main.1f6cfc7d.js",
     "static/media/paris.png": "/static/media/paris.c57bd4fe0fe1849e089a.png",
     "static/media/bluepeople.png": "/static/media/bluepeople.0c9ee68e380414b57fb3.png",
     "static/media/lyon.png": "/static/media/lyon.d7bb4495c6ccebe6f955.png",
@@ -21,10 +21,10 @@
     "static/media/background2.png": "/static/media/background2.2e2672044d137e4d5558.png",
     "static/media/iphone.png": "/static/media/iphone.45cc34357dc12bb92e86.png",
     "static/media/musique.png": "/static/media/musique.a062b0849117901fc068.png",
+    "static/media/bandeau2.png": "/static/media/bandeau2.3d71033c20799d94baad.png",
     "static/media/world.png": "/static/media/world.a3e30421c32652062ab6.png",
     "static/media/person1b.png": "/static/media/person1b.9008b0061701f01cffa7.png",
     "static/media/person2a.png": "/static/media/person2a.ed0a3bac677f1c000299.png",
-    "static/media/bandeau.png": "/static/media/bandeau.992f52a7552dd17a79d5.png",
     "static/media/blue2.png": "/static/media/blue2.007669558aa8305ff5e3.png",
     "static/media/person2b.png": "/static/media/person2b.3d6db00a25847f7adbd8.png",
     "static/media/person1c.png": "/static/media/person1c.481a7472a074e4a8c903.png",
@@ -36,10 +36,10 @@
     "static/media/logoMobile.png": "/static/media/logoMobile.f6872de0ab4bf5556e46.png",
     "index.html": "/index.html",
     "main.0b14ff0c.css.map": "/static/css/main.0b14ff0c.css.map",
-    "main.a2081ffe.js.map": "/static/js/main.a2081ffe.js.map"
+    "main.1f6cfc7d.js.map": "/static/js/main.1f6cfc7d.js.map"
   },
   "entrypoints": [
     "static/css/main.0b14ff0c.css",
-    "static/js/main.a2081ffe.js"
+    "static/js/main.1f6cfc7d.js"
   ]
 }
