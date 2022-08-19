@@ -13,13 +13,25 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const [renameloading, setRenameloading] = useState(false);
+  const [displayConfirm, setDisplayConfirm] = useState(false);
 
   const toast = useToast();
 
-  const { user, selectedChat, setSelectedChat } = ChatState();
+  const { selectedChat, setSelectedChat } = ChatState();
+  const user = JSON.parse(localStorage.getItem("userInfo"));
 
   const handleRename = async () => {
     if (!groupChatName) return;
+    if (selectedChat.groupAdmin?._id !== user._id) {
+      toast({
+        title: "Only admins can rename group",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      return;
+    }
 
     try {
       setRenameloading(true);
@@ -186,6 +198,48 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
     setGroupChatName("");
   };
 
+  const handleDelete = async () => {
+    if (selectedChat.groupAdmin?._id !== user._id) {
+      toast({
+        title: "Only admins can delete the group",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      };
+      const { data } = await axios.put(
+        `/api/chat/deletegroup`,
+        {
+          chatId: selectedChat._id
+        },
+        config
+      );
+      setSelectedChat();
+      setFetchAgain(!fetchAgain);
+      setLoading(false);
+    } catch (error) {
+      toast({
+        title: "Error Occured!",
+        description: error.response.data.message,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <IconButton d={{ base: "flex" }} borderRadius="50px" icon={<SettingsIcon />} onClick={onOpen} />
@@ -281,9 +335,16 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
           }
 
           <ModalFooter>
-            <Button onClick={() => handleRemove(user)} colorScheme="red">
-              Leave Group
-            </Button>
+            { displayConfirm && <Button mr="2px" color="white" bg="black" _hover={{bg:"#3f3f3f"}} onClick={() => handleDelete()}>Confirm</Button>}
+            { selectedChat.groupAdmin?._id === user?._id ? 
+              <Button colorScheme="red" onClick={() => setDisplayConfirm(!displayConfirm)}>
+                Delete Group
+              </Button>
+              :
+              <Button ml="6px" colorScheme="red" onClick={() => handleRemove(user)}>
+                Leave Group
+              </Button>
+            }
           </ModalFooter>
         </ModalContent>
       </Modal>

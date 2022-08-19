@@ -103,6 +103,19 @@ const createGroupChat = asyncHandler(async (req, res) => {
   }
 });
 
+const deleteGroupChat = asyncHandler(async (req, res) => {
+  const { chatId } = req.body;
+
+  const deleted = await Chat.findByIdAndDelete(chatId);
+
+  if (!deleted) {
+    res.status(404);
+    throw new Error("Chat Not Found");
+  } else {
+    res.json(deleted);
+  }
+});
+
 const fetchPublicGroups = asyncHandler(async (req, res) => {
   const keyword = req.query.search
     ? {
@@ -112,6 +125,7 @@ const fetchPublicGroups = asyncHandler(async (req, res) => {
 
   const groups = await Chat.find(keyword).find({ isPublic: true })
     .populate("users", "-password")
+    .populate("groupAdmin", "-password")
   res.send(groups);
 });
 
@@ -185,4 +199,4 @@ const removeFromGroup = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { accessChat, fetchChats, createGroupChat, fetchPublicGroups, renameGroup, addToGroup, removeFromGroup };
+module.exports = { accessChat, fetchChats, createGroupChat, deleteGroupChat, fetchPublicGroups, renameGroup, addToGroup, removeFromGroup };
