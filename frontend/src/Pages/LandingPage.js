@@ -71,11 +71,14 @@ import {
                     <img src={logo} alt=""/>
                 </Flex>
         
-                <Box d="flex"
-                        mr={20}>
+                <Box d="flex" mr={20}>
+                    {/*
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABzElEQVRIie2WO2sVURRG1xEfYGejYm5ifDVaWIil2Bt8IfYqSAox/gTBf6FBsbERgwTSaGVhqT/AVD4CPlG8isaQZFncGxwn98zdmbmkygcDw9n7O2vvM2dmDmxonZSiieoIcBYYA0aBVjc0B7wGZoDplNK7gVSmDqm31UX7a0l9qI42hZ5TfwSAZbXVM3WhN7od1NWSOlGn07VAv6u/M/BY52rL2PJ+Ui+rOwreberzUl5b3RMB3w1Af6lHMv5nPfIn+0FHjO3eOyXfFvWoekx92SN/UW3luKjXA1DViwXPdnU24LlWZG0qsU9VLsk/vS/cnwQOBTz/zV0G7w+C/xTudwY9B6rA/XffakU/u0PZiPqz4hmdiMxe8bzbxbxyxx+D1eegW4F9mfCHKvCrJmDgILA5E5utAj+tmHRSfdG9Dq8MqqdXxoHHFf4n2Yi6V10IvJPHC55LgfwFdTjbcUrpDfCgouq6ul8+IJSXGuAm8G2A0K/ArfLgKnBK6S1wFXAAUIErKaW5vuAufAoYB5YbQJeB8ZTS9Jqd6gX1S43N9Vk936BoUHer99T5AHjezv98VyNojwIm1CkLhwA7x6RHds5o0R/GhtZPfwGYgHy734je2wAAAABJRU5ErkJggg==" alt="réseaux" style={{margin: "15px"}}></img>
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAABrUlEQVRIie2VvUtWURzHP0cMBYOEwEQaKmwwyJctg6SloZehsX/AoSH/AQkCiVpEVzehoWjrZUitISFpSopyb1DIzSVfHz8O91643LzPc66PEERfuJx7zv39zuf35Zx7DvzX35A6oj5XV9Tv6jP1SiFmUD2RdXrVsYqQpx6uffWx+kB9r77MJz1Ua+r9SMhoCaSoH2qP2pclzuY+TqltdSAt6moEpKZ+Vn/mQdOFoG/q9RLQ5Ug3quvqcD75bkngR/WeejIXe60C6GaW15q2b4FlYKhgYCR9ttQvwFegFrOOqdazl5BWeRvYBGaA3goTNdLZEMIqQEs6cAf4AJw7RsgO8CvrZKDXadv6R/jRtRRC2CuC3gELxwgBmDt0VO1QX1XYUfW0p14sLUEdUJ+oG02CXtT1qo43a8XETX8jUIf6qUnQROPlS2Cn1Bl19wiQJbXazlW71MkKkGX1TFXIkMmFth8JWVQ7680Z1PPADaATuEBytvVF1rQLTAKPQgjbMQ6uqm+MX5ffJndY+b9SdFQAdgO3gGHgEnAaaCc5cNeAFWARmA8hbMRC/k0dAF1yoPDRYAwKAAAAAElFTkSuQmCC" style={{margin: "15px"}} alt="réseaux"></img>
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAACS0lEQVRYhe2Wz05TURDGvyGGnTXhCZTUyL/2Ddi59r8hrg0PoDsSQY0+golJW2OihAUr4k6fgKUYIygUiOzViJtW2p+Le244XO69Pbd0Z7/kpOfemW9mzpzp3JGGGCIHQBVoAPtAm3C0HacBVPpxbMAToFPAaRY6wBJgab7OZcTw2K0Y25K+SGoHnmFU0rSksqQRSU8lIelZyOmr3skPgfuBTtNszQF/nK0jYCaE9MpLX1/OgZvAL6AOzHv26iHkfae8naMzBSwAr91aACY9ed3Z+Onqqemed0MCiKt9LUV2AVgBuinF1gWWgRJwCagB1xxvzem0QgKIsZri/FOK4yQ2gFKCuxoLk/5GekZ0jJeS4v/0gaQ7kkpu3ZL01cmqkl4UsHsSaRlwdx6n/TswlsIbAw6865jwZGfOwA1JcSN5YGY/kgru3cP40XF6IjSAsrf/kKP33ttfHmQAoUhtt4MIYMfbX83R82WZfSQXGUU46RXhVk4RfnM6nYEWoZltSlpxj1ckbQB3XdMpAbclrev43pfNbCv82CdPktWISq7J9MJH4HyCWygDf93vqP/SzH5LmpX0VtGnNYmupDeSZs3sMCGLbZ36nJ+qWmBP0kVJTTMrJ+VOZ0LSdUnxPW9KepeWdqJBZEfSuKQ9MxtPs+kTGl4653KVAwDc8+zVQggVouEBomFinoxxKtC5P5BMJ3VSDQNLisaoGE1Jn1VsJKsoSnuMRTN7Hhq5AYteJs6CI+BRX1kEZoimm12gVcBpy3FqwFRhx0P8V/gHgHqKaAFo3VkAAAAASUVORK5CYII=" alt="réseaux" style={{margin: "15px"}}></img>
+                    */}
+                    <a href="https://www.instagram.com/like_minded_community/">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAACS0lEQVRYhe2Wz05TURDGvyGGnTXhCZTUyL/2Ddi59r8hrg0PoDsSQY0+golJW2OihAUr4k6fgKUYIygUiOzViJtW2p+Le244XO69Pbd0Z7/kpOfemW9mzpzp3JGGGCIHQBVoAPtAm3C0HacBVPpxbMAToFPAaRY6wBJgab7OZcTw2K0Y25K+SGoHnmFU0rSksqQRSU8lIelZyOmr3skPgfuBTtNszQF/nK0jYCaE9MpLX1/OgZvAL6AOzHv26iHkfae8naMzBSwAr91aACY9ed3Z+Onqqemed0MCiKt9LUV2AVgBuinF1gWWgRJwCagB1xxvzem0QgKIsZri/FOK4yQ2gFKCuxoLk/5GekZ0jJeS4v/0gaQ7kkpu3ZL01cmqkl4UsHsSaRlwdx6n/TswlsIbAw6865jwZGfOwA1JcSN5YGY/kgru3cP40XF6IjSAsrf/kKP33ttfHmQAoUhtt4MIYMfbX83R82WZfSQXGUU46RXhVk4RfnM6nYEWoZltSlpxj1ckbQB3XdMpAbclrev43pfNbCv82CdPktWISq7J9MJH4HyCWygDf93vqP/SzH5LmpX0VtGnNYmupDeSZs3sMCGLbZ36nJ+qWmBP0kVJTTMrJ+VOZ0LSdUnxPW9KepeWdqJBZEfSuKQ9MxtPs+kTGl4653KVAwDc8+zVQggVouEBomFinoxxKtC5P5BMJ3VSDQNLisaoGE1Jn1VsJKsoSnuMRTN7Hhq5AYteJs6CI+BRX1kEZoimm12gVcBpy3FqwFRhx0P8V/gHgHqKaAFo3VkAAAAASUVORK5CYII=" alt="réseaux" style={{margin: "15px"}}/>
+                    </a>
                 </Box>
                 
 
@@ -124,7 +127,7 @@ import {
                             <Heading as='h2' size='2xl'>+10 000</Heading>
                             <p>personnes connectées !</p>
                             <br/>
-                            <Button style={{backgroundColor: "transparent", marginBottom: "150px", border:'1px solid white', borderRadius: "25px"}}>Découvrir Maintenant<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
+                            <Button style={{backgroundColor: "transparent", marginBottom: "150px", border:'1px solid white', borderRadius: "25px"}} _hover={{color:"#34B7F1", backgroundColor:"white !important"}} onClick={redirectHome}>Découvrir Maintenant<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                         </GridItem>
                         <GridItem>
                             <img style={{marginTop: "150px"}} src={people} alt="people"></img>
@@ -145,7 +148,7 @@ import {
                             sujets communs pour faire de nouvelles rencontres,<br/>
                             poursuivre des projets ou organiser des événements. </p>
                             <br/>
-                            <Button style={{backgroundColor: "transparent", marginBottom: "150px", border:'1px solid #D7D7D7', borderRadius: "25px"}}>Rejoindre la communauté<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
+                            <Button style={{backgroundColor: "transparent", marginBottom: "150px", border:'1px solid #D7D7D7', borderRadius: "25px"}} _hover={{color:"white", backgroundColor:"#34B7F1 !important"}} onClick={redirectHome}>Rejoindre la communauté<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                         </GridItem>
                         <GridItem style={{marginTop: "150px", marginBottom: "150px"}}>
                             <Box style={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
@@ -229,7 +232,7 @@ import {
                     </Grid>
                     <br/>
                     <br/>
-                    <Button style={{backgroundColor: "transparent", marginBottom: "120px", border:'1px solid #D7D7D7', borderRadius: "25px"}}>Découvrir les membres<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
+                    <Button style={{backgroundColor: "transparent", marginBottom: "120px", border:'1px solid #D7D7D7', borderRadius: "25px"}} _hover={{color:"white", backgroundColor:"#34B7F1 !important"}} onClick={redirectHome}>Découvrir les membres<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                 </Box>
             </Box>
             <Grid templateColumns='repeat(2, 1fr)'>
@@ -239,7 +242,7 @@ import {
                         <br/>                   
                         <p style={{marginBottom: "35px"}}>Ciblez la commune qui vous intéresse et découvrez les gens qui vivent là où<br/> vous êtes. Que vous veniez d’emménager dans une nouvelle ville ou que vous<br/> soyez de passage en vacances, partez à la découverte de vos semblables !</p>
                        
-                        <Button style={{backgroundColor: "white", marginBottom: "120px", borderRadius: "25px", color: "black"}}>En savoir plus<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
+                        <Button style={{backgroundColor: "white", marginBottom: "120px", borderRadius: "25px", color: "black"}} _hover={{color:"white !important", backgroundColor:"#34B7F1 !important"}} onClick={redirectHome}>En savoir plus<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                     </Box>
                 </GridItem>
                 <GridItem>
@@ -282,7 +285,7 @@ import {
                                 <br/>
                                 <p>Oubliez l’angoisse du premier pas grâce à Like Minded :<br/> nous vous proposons de nouvelles rencontres pour<br/> poursuivre vos hobbies et échanger sur vos centres<br/> d’intérêts avec des passionnés.</p>
                                 <br/>
-                                <Button style={{backgroundColor: "#2D5BE3", marginTop: "150px", borderRadius: "25px", color: "white"}}>Découvrir l'app<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
+                                <Button style={{backgroundColor: "#2D5BE3", marginTop: "150px", borderRadius: "25px", color: "white"}} _hover={{color:"#34B7F1 !important", backgroundColor:"white !important", border:"solid 1px #3487F1"}} onClick={redirectHome}>Découvrir l'app<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                             </GridItem>
                             <GridItem>
                                 <img src={iphone} alt=""/>
@@ -318,7 +321,7 @@ import {
                             </GridItem>
                         
                     </Grid>
-                    <Button style={{backgroundColor: "transparent", marginTop: "20px", marginBottom: "40px", border:'1px solid #D7D7D7', borderRadius: "25px"}}>Voir tous les groupes<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
+                    <Button style={{backgroundColor: "transparent", marginTop: "20px", marginBottom: "40px", border:'1px solid #D7D7D7', borderRadius: "25px"}} _hover={{color:"white !important", backgroundColor:"#34B7F1 !important"}} onClick={() => {history.push("/groups")}}>Voir tous les groupes<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                 </Box>
                 
             </Box>
@@ -379,9 +382,9 @@ import {
                         <GridItem>
                             <Heading as='h3' size='md' style={{fontFamily: 'Varela Round', paddingLeft: '20px', paddingRight: '20px'}}>Réseaux sociaux</Heading> 
                             <br/>
-                            <p style={{paddingLeft: '20px', paddingRight: '20px'}}>Facebook</p>
-                            <p style={{paddingLeft: '20px', paddingRight: '20px'}}>Twitter</p>
-                            <p style={{paddingLeft: '20px', paddingRight: '20px'}}>Instagram</p>
+                            {/* <p style={{paddingLeft: '20px', paddingRight: '20px'}}>Facebook</p>
+                            <p style={{paddingLeft: '20px', paddingRight: '20px'}}>Twitter</p> */}
+                            <a style={{paddingLeft: '20px', paddingRight: '20px'}} href="https://www.instagram.com/like_minded_community/">Instagram</a>
                         </GridItem>
                     </Grid>
                 </Box>
