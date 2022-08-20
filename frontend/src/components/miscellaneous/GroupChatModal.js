@@ -2,6 +2,7 @@ import { Box, Button, Checkbox, FormControl, FormLabel, Input, Modal, ModalBody,
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { ChatState } from '../../Context/ChatProvider';
 //import { ChatState } from '../../Context/ChatProvider';
 import UserBadgeItem from '../UserAvatar/UserBadgeItem';
 import UserListItem from "../UserAvatar/UserListItem";
@@ -17,7 +18,7 @@ const GroupChatModal = ({ children, fetchAgain, setFetchAgain }) => {
 
   const toast = useToast();
 
-  //const { user, chats, setChats } = ChatState();
+  const { selectedChat, setSelectedChat } = ChatState();
   const user = JSON.parse(localStorage.getItem("userInfo"));
   const [chats, setChats] = useState([]);
   const history = useHistory();
@@ -107,6 +108,7 @@ const GroupChatModal = ({ children, fetchAgain, setFetchAgain }) => {
         isClosable: true,
         position: "bottom",
       });
+      setSelectedChat(data)
       history.push("/chats");
     } catch (error) {
       toast({
