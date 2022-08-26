@@ -124,8 +124,10 @@ import {
                             <p>Avoir de réelles interactions sociales peut enfin être un jeu d'enfant<br/>
                             Soyez VOUS tout simplement !</p>
                             <br/>
-                            <Heading as='h2' size='2xl'>+10 000</Heading>
-                            <p>personnes connectées !</p>
+                            {/*<Heading as='h2' size='2xl'>+10 000</Heading>
+                            <p>personnes connectées !</p>*/}
+                            <br/>
+                            <br/>
                             <br/>
                             <Button style={{backgroundColor: "transparent", marginBottom: "150px", border:'1px solid white', borderRadius: "25px"}} _hover={{color:"#34B7F1", backgroundColor:"white !important"}} onClick={redirectHome}>Découvrir Maintenant<div style={{marginLeft: '10px', backgroundColor: "#34B7F1", borderRadius:'50%', width: "32px", height: "32px", display: "flex", justifyContent: "center", alignItems: "center"}}><img src={fleche} alt="fleche" style={{width: "17px"}}/></div></Button>
                         </GridItem>

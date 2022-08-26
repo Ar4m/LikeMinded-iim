@@ -14,6 +14,11 @@ const ChatLoading = () => {
         <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
         <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
         <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
+        <Skeleton h="18em" w="16em" m='18px' borderRadius="8px"/>
     </Box>
   )
 }
